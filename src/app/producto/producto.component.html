@@ -1,0 +1,32 @@
+<div class="container">
+
+    <section class="row">
+        <div class="col-12 ">
+            <h2>{{this.producto.nombre}}</h2>
+            <figure class="row align-items-center">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 row">
+                    <img class="col-12" src="{{this.producto.imagen}}">
+                    <button mat-stroked-button class="col-6" (click)="annadirCarrito()">Annadir al carrito</button>
+                    <!-- <input type="number" class="col-6" value="1">  -->
+                    <mat-form-field class="example-full-width col-6" appearance="fill">
+                        <mat-label>Cantidad</mat-label>
+                        <input matInput placeholder="1" value="1" type="number" [(ngModel)]="cantidadProducto">
+                    </mat-form-field>
+                </div>
+                <div class=" col-lg-2 col-md-2 col-sm-12 col-xs-12 "></div>
+                <figcaption class="col-lg-5 col-md-5 col-sm-12 col-xs-12 ">
+                    <mat-card-title>Descripcion</mat-card-title>
+                    <p>{{this.producto.descripcion}}</p>
+                    <mat-card-title>Productos en el Paquete</mat-card-title>
+                    <mat-list>
+                        <mat-list-item *ngFor="let producto of producto.paquete "> {{producto.nombre}}</mat-list-item>
+                    </mat-list>
+                    <mat-card-title>Precio del producto: {{producto.precio}}</mat-card-title>
+                </figcaption>
+            </figure>
+            <div class="row ">
+
+            </div>
+        </div>
+    </section>
+</div>

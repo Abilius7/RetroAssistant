@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+}
+
+td {
+    text-align: left;
+}
+
+th {
+    width: 25%;
+    text-align: center;
+}
+
+button {
+    margin: 5%;
+}

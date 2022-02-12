@@ -1,0 +1,14 @@
+ img {
+     height: 50%;
+     margin-bottom: 10%;
+ }
+ 
+ button {
+     background-color: #CA965C;
+     height: 100%;
+     margin-top: 3%;
+ }
+ 
+ mat-form-field {
+     height: 100%;
+ }
