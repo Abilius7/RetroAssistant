@@ -1,0 +1,47 @@
+{
+    "productos": [{
+            "nombre": "Basico",
+            "descripcion": "Es la version mas basica de nuestro producto con el que podremos contorlar el nivel de gasolina su consumo y la velocidad",
+            "precio": "70 Euros",
+            "paquete": [
+                { "nombre": "Placa Arduino" }, { "nombre": "cargador" },
+                { "nombre": "sensor de nivel de gasolina" }, { "nombre": "caudalimetro" }, { "nombre": "Velocimetro" }
+            ],
+            "imagen": "https://blog.orange.es/wp-content/uploads/sites/4/2019/07/photo-1553063085-dbbf64d936ea.jpeg"
+        },
+        {
+            "nombre": "Avanzado",
+            "descripcion": "Es la version extendida de nuestro producto con el que podremos controlar los parametros del paquete basico y ademas revoluciones del motor, aceleracion, y posicion por GPS",
+            "precio": "150 Euros",
+            "paquete": [
+                { "nombre": "Placa Arduino" }, { "nombre": "cargador" },
+                { "nombre": "sensor de nivel de gasolina" }, { "nombre": "caudalimetro" }, { "nombre": "Velocimetro" },
+                { "nombre": "Contador de revoluciones" }, { "nombre": "GPS" }
+            ],
+            "imagen": "https://www.powerplanetonline.com/cdnassets/products/s/sensor_magnetico_01_l.jpg"
+        },
+
+        {
+            "nombre": "Basico con instalacion",
+            "descripcion": "Es la version mas basica de nuestro producto con el que podremos contorlar el nivel de gasolina su consumo y la velocidad, en este paquete tambien incluimos la instalacion del producto en su vehiculo por un profesional",
+            "precio": "120 Euros",
+            "paquete": [
+                { "nombre": "Placa Arduino" }, { "nombre": "cargador" },
+                { "nombre": "sensor de nivel de gasolina" }, { "nombre": "caudalimetro" }, { "nombre": "Velocimetro" }, { "nombre": "Instalacion" }
+            ],
+            "imagen": "https://www.todomecanica.com/images/blog/2016/febrero/mecanico-automotriz.jpg"
+        },
+        {
+            "nombre": "Avanzado con instalacion",
+            "descripcion": "Es la version extendida de nuestro producto con el que podremos controlar los parametros del paquete basico y ademas revoluciones del motor, aceleracion, y posicion por GPS, en este paquete tambien incluimos la instalacion del producto en su vehiculo por un profesional, tambien se incluye mantenieminto y reparaciones los 5 primeros annos",
+            "precio": "250 Euros",
+            "paquete": [
+                { "nombre": "Placa Arduino" }, { "nombre": "cargador" },
+                { "nombre": "sensor de nivel de gasolina" }, { "nombre": "caudalimetro" }, { "nombre": "Velocimetro" },
+                { "nombre": "Contador de revoluciones" }, { "nombre": "GPS" }, { "nombre": "Instalacion" },
+                { "nombre": "Manteniento los 5 primeros annos" }
+            ],
+            "imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR14Z6vPrrA7RATv-LyolP7oyozg9U_0g_lSmPawxYMfLYTo9k80gRZfKi3pndbEiwxG-s"
+        }
+    ]
+}
