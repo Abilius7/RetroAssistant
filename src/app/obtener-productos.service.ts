@@ -9,12 +9,9 @@ export class ObtenerProductosService {
   constructor(private http: HttpClient) { }
   devolverProductos() {
 
-    return this.http.get("/retroAssistant/productos.json");
+    return this.http.get("/retroAssistant/obtenerProductos.php");
 
   }
 
-  obtenerPrecio (producto:string){
-    let a =this.http.get("/retroAssistant/productos.json");
-  } 
 
 } 

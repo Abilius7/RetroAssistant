@@ -28,8 +28,6 @@ export class BarraNavegacionComponent implements OnInit {
         this.productos = articulos.productos;
 
       });
-
-      this.obtenerProductosService.obtenerPrecio("a");
   }
 
   abrirOpcionesUsuario() {
