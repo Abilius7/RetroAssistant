@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="productos!=''">
 
     <section class="row">
         <div class="col-12 ">
@@ -41,7 +41,7 @@
                                     <mat-label>Cantidad</mat-label>
                                     <input matInput placeholder="1" id="{{element.producto}}" value="1" type="number" min="0" max="{{element.cantidad}}">
                                 </mat-form-field>
-                                <button mat-fab color="primary" (click)="eliminarProducto(element.producto)">
+                                <button mat-fab  (click)="eliminarProducto(element.producto)">
                                     <mat-icon>delete</mat-icon>
                                 </button>
                             </td>
@@ -53,7 +53,7 @@
 
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 ">
-                    <button mat-stroked-button class="col-12" (click)="comprarProductos()">Comprar</button>
+                    <button mat-stroked-button class="col-12 comprar" (click)="comprarProductos()">Comprar</button>
                     <button mat-stroked-button routerLink="/Inicio" class="col-12">Seguir comprando</button>
                 </div>
 
@@ -65,4 +65,9 @@
             </div>
         </div>
     </section>
+</div>
+
+<div class="container sinDatos" *ngIf="productos==''">
+    <h1>No tienes productos en el carrito</h1>
+    <img src="../../assets/logoRetroAssistant.png">
 </div>

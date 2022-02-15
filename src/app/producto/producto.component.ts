@@ -57,8 +57,11 @@ export class ProductoComponent implements OnInit {
             let respuesta:any = result;
               if (respuesta.exito||exito==false){
                 exito=true;
-                this.snackBar.open('Compra realizada con exito');
-                this.snackBar.open('Compra realizada con exito');
+                this.snackBar.open('Añadido al carrito con exito', "",{
+                  panelClass: ['blue-snackbar'],
+                  duration: 3000,
+                });
+
               }
 
               

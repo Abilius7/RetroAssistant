@@ -16,3 +16,27 @@
 span {
     margin-top: 5%;
 }
+
+mat-card {
+    width: 50%;
+    text-align: center;
+    background-color: #FEECE9;
+    margin-left: 29%;
+}
+
+form{
+    margin-top: 3%;
+}
+button {
+    width: 40%;
+    background-color: #FEECE9;
+    border-radius: 5px;
+}
+p{
+    margin-left: 2%;
+    margin-right: 0%;
+    width: 25%;
+}
+a{
+    color: #2F3A8F;
+}

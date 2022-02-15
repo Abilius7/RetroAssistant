@@ -1,13 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
-body {
-    background-color: white;
-    color: #3e2e20;
+body{
+    position: absolute;
+    background-color: #CCD1E4;
     height: 100%;
-}
-
-body {
-    height: 100%;
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+    width: 100%;
 }

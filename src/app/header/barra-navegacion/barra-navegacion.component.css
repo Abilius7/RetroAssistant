@@ -21,8 +21,16 @@ div h4 {
     width: 20%;
     margin-top: 4%;
     text-align: right;
+    
 }
 
 div span {
     text-align: left;
+}
+.mat-option{
+    background-color: #FEECE9;
+}
+.mat-option:hover{
+    background-color: #CCD1E4;
+    
 }

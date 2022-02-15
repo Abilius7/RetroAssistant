@@ -10,7 +10,7 @@ export class ProductosCompradosComponent implements OnInit {
 
   constructor(private comprasService:ComprasService) { }
 
-  pedidos:any;
+  pedidos:any='';
 
   ngOnInit(): void {
     this.comprasService.obtenerCompras(this.obtenerIdUsuario())

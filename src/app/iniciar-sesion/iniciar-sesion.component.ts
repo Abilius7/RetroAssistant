@@ -29,16 +29,11 @@ export class IniciarSesionComponent implements OnInit {
         if (respuesta.error) {
           this.snackBar.open(respuesta.error);
         } else {
-          let snackBar= this.snackBar.open("Sesion iniciada correctamente","Ir al inicio",{
+          let snackBar= this.snackBar.open("Sesion iniciada correctamente",'',{
             duration: 3000
           });
-          localStorage.setItem("sesion", JSON.stringify(respuesta))
-          snackBar.onAction().subscribe(()=>{
-
-            this.router.navigate(["/Inicio"]);
-
-          });
-      
+          localStorage.setItem("sesion", JSON.stringify(respuesta));
+          this.router.navigate(["/Inicio"]);
         }
       });
   }

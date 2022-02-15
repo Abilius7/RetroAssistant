@@ -19,7 +19,7 @@ export class CarritoComponent implements OnInit {
 
 
   cabecera: string[] = ['Producto', 'Cantidad', 'Precio Unitario', 'Precio Total', 'Eliminar'];
-  productos: any;
+  productos: any='';
   nProductosEliminar: number = 0;
 
 
@@ -117,7 +117,9 @@ export class CarritoComponent implements OnInit {
     .subscribe((result)=>{
       console.log(result);
       if (result){
-        this.snackBar.open("Productos comprados con exito");
+        this.snackBar.open("Productos comprados con exito",'',{
+          duration: 3000,
+        });
 
         this.carrito.eliminarProductosUsuario(idUsuario)
         .subscribe((result)=>{
