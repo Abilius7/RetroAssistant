@@ -1,5 +1,6 @@
+<div>
 <mat-nav-list>
-    <a mat-list-item (click)="cerrarSesion()">
+    <a mat-list-item (click)="cerrarSesion()" (click)="cerrar()">
         <span mat-line>Cerrar Sesion</span>
 
         <span class=" material-icons ">
@@ -8,14 +9,14 @@
 
 
     </a>
-    <a mat-list-item routerLink="cambiarContrasenna">
+    <a mat-list-item routerLink="cambiarContrasenna" (click)="cerrar()">
         <span class="material-icons ">
             password
             </span>
 
         <span mat-line>Cambiar Contrasenna</span>
     </a>
-    <a mat-list-item routerLink="ProductosComprados">
+    <a mat-list-item routerLink="ProductosComprados" (click)="cerrar()">
         <span class="material-icons ">
             shopping_bag
             </span>
@@ -24,3 +25,4 @@
     </a>
 
 </mat-nav-list>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Route, Router } from '@angular/router';
+import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 @Component({
   selector: 'app-opciones-usuario',
   templateUrl: './opciones-usuario.component.html',
@@ -7,14 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpcionesUsuarioComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,private _bottomSheetRef: MatBottomSheetRef<OpcionesUsuarioComponent>) { }
 
   ngOnInit(): void {
   }
 
-  cerrarSesion (){
+  cerrarSesion() {
     localStorage.removeItem('sesion');
-    let servidor  ="http://"+window.location.toString().split("/")[2];
-      window.location.replace(servidor+"/InicioSesion");
+    this.router.navigate(['/InicioSesion']);
+  }
+
+  cerrar(){
+    this._bottomSheetRef.dismiss();
   }
 }

@@ -34,13 +34,19 @@ export class CambiarContrasennaComponent implements OnInit {
               this.interpretarResultado(result);
             })
         } else {
-          this.snack.open("Porfavor antes inicia sesion");
+          this.snack.open("Porfavor antes inicia sesion",'',{
+            duration: 3000
+          });
         }
       } else {
-        this.snack.open("Las contrasennas no coinciden");
+        this.snack.open("Las contrasennas no coinciden",'',{
+          duration: 3000
+        });
       }
     } else {
-      this.snack.open("La contrasenna no es valida");
+      this.snack.open("La contrasenna no es valida",'',{
+        duration: 3000
+      });
     }
   }
   comprobarSesionIniciada() {
@@ -57,17 +63,25 @@ export class CambiarContrasennaComponent implements OnInit {
   interpretarResultado(result: any) {
     switch (parseInt(result)) {
       case 0:
-        this.snack.open("Error de conexion");
+        this.snack.open("Error de conexion",'',{
+          duration: 3000
+        });
         break;
       case 1:
         
-        this.snack.open("El usuario no existe");
+        this.snack.open("El usuario no existe",'',{
+          duration: 3000
+        });
         break;
       case 2:
-        this.snack.open("La contrasenna no coincide");
+        this.snack.open("La contrasenna no coincide",'',{
+          duration: 3000
+        });
         break;
       case 3:
-        this.snack.open("Contrasenna cambiada con exito");
+        this.snack.open("Contrasenna cambiada con exito",'',{
+          duration: 3000
+        });
         break;
     }
   }

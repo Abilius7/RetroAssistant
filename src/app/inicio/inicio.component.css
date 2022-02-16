@@ -3,3 +3,15 @@
     align-items: center;
     justify-content: center;
 }
+
+figcaption{
+    visibility: hidden;
+
+}
+
+img{
+    position: relative;
+    left: 45%;
+    top: auto;
+    margin-right: 3%;
+}
