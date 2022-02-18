@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from '../usuarios.service';
+import { UsuariosService } from '../services/usuarios.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

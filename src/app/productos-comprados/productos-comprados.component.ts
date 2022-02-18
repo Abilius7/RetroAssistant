@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ComprasService } from '../compras.service';
+import { ComprasService } from '../services/compras.service';
 
 @Component({
   selector: 'app-productos-comprados',

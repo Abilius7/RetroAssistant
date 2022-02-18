@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { ObtenerProductosService } from '../../obtener-productos.service';
-import {ComprasService}from '../../compras.service';
-import{CarritoService}from'../../carrito.service';
+import { ObtenerProductosService } from '../../services/obtener-productos.service';
+import {ComprasService}from '../../services/compras.service';
+import{CarritoService}from'../../services/carrito.service';
 
 @Component({
   selector: 'app-carrito',

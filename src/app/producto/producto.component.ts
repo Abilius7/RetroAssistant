@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ObtenerProductosService } from '../obtener-productos.service';
-import { CarritoService } from '../carrito.service';
+import { ObtenerProductosService } from '../services/obtener-productos.service';
+import { CarritoService } from '../services/carrito.service';
 import { MatListModule } from '@angular/material/list';
 import { SimpleChange } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';

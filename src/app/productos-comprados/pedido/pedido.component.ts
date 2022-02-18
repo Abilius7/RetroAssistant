@@ -15,7 +15,6 @@ export class PedidoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.pedido);
     this.productos=this.pedido.desglose
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ObtenerProductosService } from '../../obtener-productos.service';
+import { ObtenerProductosService } from '../../services/obtener-productos.service';
 import { MatSelectModule } from '@angular/material/select';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { OpcionesUsuarioComponent } from './opciones-usuario/opciones-usuario.component';
