@@ -12,7 +12,7 @@ export class InicioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    let documento:any =window.document!;
+    let documento:any =window.document;
     let figCaptions:any =documento.querySelectorAll("figcaption");
     for (let i=0;i<figCaptions.length;i++){
       figCaptions[i].style.visibility ="hidden";

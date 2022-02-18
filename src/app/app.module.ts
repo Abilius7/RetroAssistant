@@ -1,31 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BarraNavegacionComponent } from './header/barra-navegacion/barra-navegacion.component';
 import { CuadroImagenesComponent } from './cuadro-imagenes/cuadro-imagenes.component';
 import { InicioComponent } from './inicio/inicio.component';
-import { CarritoComponent } from './carrito/carrito.component';
 import { ProductoComponent } from './producto/producto.component';
 import { MatSelectModule } from '@angular/material/select'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatListModule} from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card'; 
-import {MatButtonModule} from '@angular/material/button'; 
-import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from '@angular/forms';
-import {MatTableModule} from '@angular/material/table'; 
-import {MatIconModule} from '@angular/material/icon';
+import { MatListModule} from '@angular/material/list';
+import { MatCardModule} from '@angular/material/card'; 
+import { MatButtonModule} from '@angular/material/button'; 
+import { MatInputModule} from '@angular/material/input';
+import { FormsModule} from '@angular/forms';
+import { MatTableModule} from '@angular/material/table'; 
+import { MatIconModule} from '@angular/material/icon';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
-import {CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component'; 
-import {MatSnackBarModule} from '@angular/material/snack-bar'; 
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component'; 
+import { MatSnackBarModule} from '@angular/material/snack-bar'; 
+import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import { OpcionesUsuarioComponent } from './header/barra-navegacion/opciones-usuario/opciones-usuario.component';
 import { CambiarContrasennaComponent } from './cambiar-contrasenna/cambiar-contrasenna.component';
 import { ProductosCompradosComponent } from './productos-comprados/productos-comprados.component';
 import { PedidoComponent } from './productos-comprados/pedido/pedido.component';
+import { ComponenteCarritoModule } from './componente-carrito/componente-carrito.module';
 
 
 @NgModule({
@@ -35,7 +35,6 @@ import { PedidoComponent } from './productos-comprados/pedido/pedido.component';
     BarraNavegacionComponent,
     CuadroImagenesComponent,
     InicioComponent,
-    CarritoComponent,
     ProductoComponent,
     IniciarSesionComponent,
     CrearCuentaComponent,
@@ -59,7 +58,8 @@ import { PedidoComponent } from './productos-comprados/pedido/pedido.component';
     MatTableModule,
     MatIconModule,
     MatSnackBarModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    ComponenteCarritoModule
     
   ],
   providers: [],

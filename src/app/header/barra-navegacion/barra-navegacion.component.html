@@ -8,7 +8,7 @@
 
     <div>
         <mat-form-field color="primary">
-            <mat-label>Productos</mat-label>
+            <mat-label>Servicios</mat-label>
             <mat-select color="primary">
                 <mat-option *ngFor="let art of productos" [routerLink]="['/Producto',art.nombre]">{{art.nombre}}</mat-option>
             </mat-select>

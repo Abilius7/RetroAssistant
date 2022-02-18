@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InicioComponent} from './inicio/inicio.component';
-import { CarritoComponent} from './carrito/carrito.component';
+import { CarritoComponent} from './componente-carrito/carrito/carrito.component';
 import { ProductoComponent } from './producto/producto.component';
 import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
