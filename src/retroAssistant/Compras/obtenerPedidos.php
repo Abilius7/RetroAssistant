@@ -1,5 +1,5 @@
 <?php
-    $conexion = new mysqli("localhost","root","","RetroAssistant");
+    $conexion = new mysqli("localhost","Usuario","2DAW","RetroAssistant");
     if ($conexion->connect_errno){
         print $conexion->connect_errno;
     }else{
