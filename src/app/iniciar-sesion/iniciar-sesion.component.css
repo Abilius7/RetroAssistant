@@ -1,3 +1,6 @@
+input{
+    width: 80%;
+}
 .container {
     text-align: center;
 }
@@ -17,16 +20,20 @@ span {
     margin-top: 5%;
 }
 
+mat-form-field{
+    width: 100%;
+}
+
 mat-card {
     width: 50%;
     text-align: center;
     background-color: #FEECE9;
-    margin-left: 29%;
+    margin-top: 3%;
+    padding: 3% 1%;
+    width: 50%;
+
 }
 
-form{
-    margin-top: 3%;
-}
 button {
     width: 40%;
     background-color: #FEECE9;
