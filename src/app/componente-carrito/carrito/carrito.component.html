@@ -1,62 +1,38 @@
-<div class="container" *ngIf="productos!=''">
+<div class="container-fluid" *ngIf="productos!=''">
 
     <section class="row">
-        <div class="col-12 ">
-            <h2>Carrito</h2>
-            <figure class="row align-items-center">
-                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 row">
-                    <table mat-table [dataSource]="productos" class="mat-elevation-z8">
+        <div class="col-12 row align-items-center align-top" style="margin: 0%;">
+            <h1 style="text-align: center;">Carrito</h1>
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 row " style="margin: 0%;">
+                    <mat-card class="container-fluid" *ngFor="let producto of productos" >
+                        <div class="row ">
+                            <span class="col-md-6 col-xs-6">Producto {{producto.producto}} </span>
+                            <span class="col-md-6 col-xs-6">Cantidad {{producto.cantidad}} </span>
+                        </div>
 
-                        <ng-container matColumnDef="Producto">
-                            <th mat-header-cell *matHeaderCellDef> Servicio</th>
-                            <td mat-cell *matCellDef="let element"> {{element.producto}} </td>
-                        </ng-container>
+                        <div class="row">
+                            <span class="col-md-6 col-xs-6">Precio Unitario {{producto.precioUnitario}} </span>
+                            <span class="col-md-6 col-xs-6">Precio Total {{producto.precioTotal}} </span>
+                        </div>
+                        <div class="row ">
+                             <mat-form-field class="example-full-width col-6" appearance="fill">
+                                <mat-label>Cantidad</mat-label>
+                                <input matInput placeholder="1" id="{{producto.producto}}" value="1" type="number" min="0" max="{{producto.cantidad}}">
+                            </mat-form-field>
+                            <button mat-fab  (click)="eliminarProducto(producto.producto)" class="eliminar col-6">
+                                <mat-icon >delete</mat-icon>
+                            </button> 
+                        </div>
 
-                        <ng-container matColumnDef="Cantidad">
-                            <th mat-header-cell *matHeaderCellDef> Cantidad </th>
-                            <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
-                        </ng-container>
+                    </mat-card>
 
-
-                        <ng-container matColumnDef="Precio Unitario">
-                            <th mat-header-cell *matHeaderCellDef> Precio Unitario </th>
-                            <td mat-cell *matCellDef="let element"> {{element.precioUnitario}} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="Precio Total">
-                            <th mat-header-cell *matHeaderCellDef> Precio total </th>
-                            <td mat-cell *matCellDef="let element"> {{element.precioTotal}} </td>
-                        </ng-container>
-
-                        <ng-container matColumnDef="Eliminar">
-                            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
-                            <td mat-cell *matCellDef="let element">
-                                <mat-form-field class="example-full-width col-6" appearance="fill">
-                                    <mat-label>Cantidad</mat-label>
-                                    <input matInput placeholder="1" id="{{element.producto}}" value="1" type="number" min="0" max="{{element.cantidad}}">
-                                </mat-form-field>
-                                <button mat-fab  (click)="eliminarProducto(element.producto)" class="eliminar">
-                                    <mat-icon >delete</mat-icon>
-                                </button>
-                            </td>
-                        </ng-container>
-
-                        <tr mat-header-row *matHeaderRowDef="cabecera"></tr>
-                        <tr mat-row *matRowDef="let row; columns: cabecera;"></tr>
-                    </table>
 
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 botones offset-md-1">
                     <button mat-stroked-button class=" comprar" (click)="comprarProductos()">Comprar</button>
                     <button mat-stroked-button routerLink="/Inicio" class="">Seguir navegando</button>
                 </div>
 
-
-
-            </figure>
-            <div class="row ">
-
-            </div>
         </div>
     </section>
 </div>

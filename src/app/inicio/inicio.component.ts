@@ -21,45 +21,41 @@ export class InicioComponent implements OnInit {
 
 
   visibilizarDescripcion(e: any) {
+
+    let final=0;
+    if (screen.width <600){
+      final=25
+    }else{
+      final=45;
+    }
+
     if (e.target.parentNode.querySelector("figcaption").style.visibility == "hidden") {
-      let contador = 45;
+      let contador = final;
       e.target.parentNode.querySelector("figcaption").style.visibility = "hidden";
+      e.target.parentNode.querySelector("figcaption").style.display = "none";
       let animacionEntrada = setInterval(() => {
         e.target.parentNode.querySelector("img").style.left = contador + "%";
         contador--;
         if (contador == 0) {
           clearInterval(animacionEntrada);
           e.target.parentNode.querySelector("figcaption").style.visibility = "visible";
+          e.target.parentNode.querySelector("figcaption").style.display = "block";
         }
       }, 20)
     }else{
       e.target.parentNode.querySelector("figcaption").style.visibility = "hidden"
+      e.target.parentNode.querySelector("figcaption").style.display = "none";
       let contador = e.target.parentNode.querySelector("img").style.left.split("%")[0];
       let animacionSalida = setInterval(() => {
         e.target.parentNode.querySelector("img").style.left = contador + "%";
         contador++;
-        if (contador == 46) {
+        if (contador == final) {
           clearInterval(animacionSalida);
           ;
         }
       }, 10)
     }
 
-  }
-
-  invisibilizarDescripcion(e: any) {
-    if (e.target.parentNode.querySelector("figcaption").style.visibility == "visible") {
-      e.target.parentNode.querySelector("figcaption").style.visibility = "hidden"
-      let contador = e.target.parentNode.querySelector("img").style.left.split("%")[0];
-      let animacionSalida = setInterval(() => {
-        e.target.parentNode.querySelector("img").style.left = contador + "%";
-        contador++;
-        if (contador == 46) {
-          clearInterval(animacionSalida);
-          ;
-        }
-      }, 10)
-    }
   }
 
 }
