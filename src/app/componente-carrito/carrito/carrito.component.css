@@ -3,18 +3,18 @@ table {
 }
 
 td {
-    text-align: left;
+    text-align: center;
 }
 
 th {
     width: 25%;
-    text-align: center;
+    text-align: right;
 }
 
 button {
     margin: 5%;
     background-color: #FEECE9;
-    width: 25%;
+    width: 100%;
 }
 table{
     background-color: #FEECE9;
@@ -24,7 +24,7 @@ table button{
 }
 .comprar{
     background-color: #FE7E6D;
-    margin-left: 25%;
+
 }
 .sinDatos{
     display: flex;
@@ -32,4 +32,15 @@ table button{
 .sinDatos h1{
     margin-right: 25%;
     margin-top: 2%;
+}
+.eliminar{
+    width: 30%;
+}
+.opciones{
+    margin-left: 0%;
+    width: 95%;
+}
+
+:host th{
+    text-align: center;
 }

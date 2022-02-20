@@ -1,32 +1,3 @@
-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 2%;
-}
-
-nav * {
-    height: 100%;
-    flex-grow: 1;
-}
-
-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-div h4 {
-    width: 20%;
-    margin-top: 4%;
-    text-align: right;
-    
-}
-
-div span {
-    text-align: left;
-}
 .mat-option{
     background-color: #FEECE9;
 }
@@ -34,3 +5,14 @@ div span {
     background-color: #CCD1E4;
     
 }
+mat-toolbar{
+    background-color: #CCD1E4;
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  div{
+      margin-left: 2.5%;
+      margin-right: 2.5%;
+  }

@@ -1,6 +1,7 @@
-<nav style="clear: both;">
+<div class="contenedor">
+<mat-toolbar  style="clear: both;">
     <div routerLink="/Inicio">
-        <h4 id="Inicio">Inicio</h4>
+        <!--  <h4 id="Inicio">Inicio</h4>-->
         <span class="material-icons">
             home
             </span>
@@ -14,19 +15,21 @@
             </mat-select>
         </mat-form-field>
     </div>
+    <span class="example-spacer"></span>
     <div (click)="irCarrito()" id="carrito ">
-        <h4> Carrito</h4>
+        <!--  <h4> Carrito</h4>-->
         <span class="material-icons ">
             shopping_cart
             </span>
     </div>
 
     <div (click)=" abrirOpcionesUsuario() ">
-        <h4> Usaurio</h4>
+        <!--  <h4> Usaurio</h4>-->
         <span class=" material-icons ">
         account_circle
         </span>
     </div>
 
 
-</nav>
+</mat-toolbar>
+</div>

@@ -26,7 +26,7 @@ import { ProductosCompradosComponent } from './productos-comprados/productos-com
 import { PedidoComponent } from './productos-comprados/pedido/pedido.component';
 import { ComponenteCarritoModule } from './componente-carrito/componente-carrito.module';
 import { CambioFechaPipe } from './cambio-fecha.pipe';
-
+import { MatToolbarModule} from '@angular/material/toolbar'; 
 
 @NgModule({
   declarations: [
@@ -59,7 +59,8 @@ import { CambioFechaPipe } from './cambio-fecha.pipe';
     MatIconModule,
     MatSnackBarModule,
     MatBottomSheetModule,
-    ComponenteCarritoModule
+    ComponenteCarritoModule,
+    MatToolbarModule
     
   ],
   providers: [],
