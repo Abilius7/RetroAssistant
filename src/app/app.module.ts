@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BarraNavegacionComponent } from './header/barra-navegacion/barra-navegacion.component';
-import { CuadroImagenesComponent } from './cuadro-imagenes/cuadro-imagenes.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { ProductoComponent } from './producto/producto.component';
 import { MatSelectModule } from '@angular/material/select'; 
@@ -26,6 +25,7 @@ import { CambiarContrasennaComponent } from './cambiar-contrasenna/cambiar-contr
 import { ProductosCompradosComponent } from './productos-comprados/productos-comprados.component';
 import { PedidoComponent } from './productos-comprados/pedido/pedido.component';
 import { ComponenteCarritoModule } from './componente-carrito/componente-carrito.module';
+import { CambioFechaPipe } from './cambio-fecha.pipe';
 
 
 @NgModule({
@@ -33,7 +33,6 @@ import { ComponenteCarritoModule } from './componente-carrito/componente-carrito
     AppComponent,
     HeaderComponent,
     BarraNavegacionComponent,
-    CuadroImagenesComponent,
     InicioComponent,
     ProductoComponent,
     IniciarSesionComponent,
@@ -42,6 +41,7 @@ import { ComponenteCarritoModule } from './componente-carrito/componente-carrito
     CambiarContrasennaComponent,
     ProductosCompradosComponent,
     PedidoComponent,
+    CambioFechaPipe,
     
   ],
   imports: [

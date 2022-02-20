@@ -1,6 +1,6 @@
 <mat-card>
     <p>Id Pedido: {{pedido.idPedido}}</p>
-    <p> Fecha Compra {{pedido.fecha}}</p>
+    <p> Fecha Compra: {{pedido.fecha|cambioFecha}}</p>
 
     <table mat-table [dataSource]="productos" class="mat-elevation-z8">
 
