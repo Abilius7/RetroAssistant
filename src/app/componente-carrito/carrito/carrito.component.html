@@ -1,9 +1,10 @@
-<div class="container-fluid" *ngIf="productos!=''">
-
-    <section class="row">
-        <div class="col-12 row align-items-center align-top" style="margin: 0%;">
-            <h1 style="text-align: center;">Carrito</h1>
-                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 row " style="margin: 0%;">
+<div class="container-fluid align-top  align-items-center" *ngIf="productos!=''">
+        <div class=" row " style="margin: 0%;">
+            <div class="offset-3"></div>
+            <h1 class="col-1">Carrito</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 row " style="margin: 0%;">
                     <mat-card class="container-fluid" *ngFor="let producto of productos" >
                         <div class="row ">
                             <span class="col-md-6 col-xs-6">Producto {{producto.producto}} </span>
@@ -28,14 +29,17 @@
 
 
                 </div>
-                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 botones offset-md-1">
+                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12  ">
+                    <div class="botones">
+                    <h2>Precio total: {{precioTotal}} Euros</h2>
                     <button mat-stroked-button class=" comprar" (click)="comprarProductos()">Comprar</button>
+                    
                     <button mat-stroked-button routerLink="/Inicio" class="">Seguir navegando</button>
                 </div>
-
+                </div>
+            </div>
         </div>
-    </section>
-</div>
+
 
 <div class="container sinDatos" *ngIf="productos==''">
     <h1>No tienes productos en el carrito</h1>

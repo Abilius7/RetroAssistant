@@ -6,7 +6,7 @@ button {
 }
 
 .botones{
-    width: 100%;
+
     background-color: #FE7E6D;
     padding: 20px;
     height: fit-content;
@@ -25,12 +25,12 @@ button {
 }
 .eliminar{
     width: 55px;
-    margin-left: 3%;
+    
 }
 .opciones{
     width: 95%;
 }
-.row{
+.row span{
     margin-bottom: 5%;
 }
 mat-card{

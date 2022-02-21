@@ -20,7 +20,7 @@ export class CarritoComponent implements OnInit {
 
   cabecera: string[] = ['Producto', 'Cantidad', 'Precio Unitario', 'Precio Total', 'Eliminar'];
   productos: any='';
-  nProductosEliminar: number = 0;
+  precioTotal:any=0;
 
 
   ngOnInit(): void {
@@ -42,6 +42,7 @@ export class CarritoComponent implements OnInit {
               }
              }
              this.productos=productosOrdenados;
+             this.obtenerPrecioTotal ();
           });
 
         });
@@ -130,6 +131,15 @@ export class CarritoComponent implements OnInit {
         this.snackBar.open("Ha sucedido un error");
       }
     });
+  }
+
+  obtenerPrecioTotal (){
+    let sumatorio =0;
+    this.productos.forEach((element:any) => {
+        sumatorio = sumatorio+parseFloat (element.precioTotal.split(" ")[0]);
+    });
+
+    this.precioTotal= sumatorio;
   }
 
 }
