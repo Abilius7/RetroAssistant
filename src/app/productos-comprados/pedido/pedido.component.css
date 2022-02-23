@@ -19,3 +19,15 @@ th {
 td {
     text-align: center;
 }
+
+.producto{
+    background-color: #CCD1E4;
+}
+
+@media (max-width: 768px) {
+    mat-card {
+      width: 96%;
+      margin-left: 2%;
+    }
+  }
+  

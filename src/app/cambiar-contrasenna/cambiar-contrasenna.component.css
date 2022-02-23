@@ -17,10 +17,28 @@ form {
 
 ::ng-deep .ng-tns-c90-2 {
     margin: 0%;
-
 }
 
 button {
-    width: 40%;
     background-color: #FE7E6D;
+}
+
+@media (max-width: 576px) {
+    mat-card {
+        width: 96%;
+        margin-left: 2%;
+    }
+    div {
+        margin-top: 10%;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    p {
+        width: 100%;
+    }
+    button {
+        width: 100%;
+    }
 }
