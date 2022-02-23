@@ -22,13 +22,15 @@ img{
 
 @media (max-width: 600px) {
     figure{
+        width: 100%;
         align-items: center;
+
     }
     img{
         position: relative;
         width: auto;
         height: 10%;
-        left: 6em;
+        left:27%;
         top: auto;
         margin-right: 3%;
         
