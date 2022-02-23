@@ -3,13 +3,23 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 15, 2022 at 11:09 PM
+-- Generation Time: Feb 23, 2022 at 04:12 PM
 -- Server version: 10.6.5-MariaDB
 -- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+CREATE DATABASE RetroAssistant;
+
+use RetroAssistant;
+
+
+CREATE USER 'Usuario'@'%' IDENTIFIED BY '2DAW';
+GRANT ALL PRIVILEGES ON * . * TO 'Usuario'@'%';
+FLUSH PRIVILEGES;
+
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -52,7 +62,11 @@ INSERT INTO `carritos` (`idUsuario`, `producto`) VALUES
 (9, 'Avanzado'),
 (9, 'Avanzado'),
 (9, 'Avanzado'),
-(9, 'Avanzado');
+(9, 'Avanzado'),
+(21, 'Basico'),
+(21, 'Almacenamiento en la nube'),
+(21, 'Avanzado'),
+(21, 'Avanzado con instalacion');
 
 -- --------------------------------------------------------
 
@@ -80,7 +94,14 @@ INSERT INTO `desglose` (`idPedido`, `producto`, `cantidad`, `precio`) VALUES
 (70, 'Avanzado con instalacion', 7, 70),
 (70, 'Basico', 5, 150),
 (70, 'Basico con instalacion', 1, 250),
-(71, 'Basico', 3, 70);
+(71, 'Basico', 3, 70),
+(72, 'Basico', 4, 70),
+(73, 'Avanzado con instalacion', 1, 150),
+(73, 'Basico', 1, 70),
+(74, 'Almacenamiento en la nube', 3, 70),
+(74, 'Basico', 2, 150),
+(75, 'Almacenamiento en la nube', 4, 150),
+(75, 'Basico', 2, 70);
 
 -- --------------------------------------------------------
 
@@ -150,7 +171,11 @@ INSERT INTO `pedido` (`idPedido`, `fecha`, `idUsuario`) VALUES
 (68, '2022-02-12 19:18:32', 18),
 (69, '2022-02-12 20:39:15', 18),
 (70, '2022-02-14 21:32:12', 18),
-(71, '2022-02-14 22:05:53', 18);
+(71, '2022-02-14 22:05:53', 18),
+(72, '2022-02-18 19:30:37', 18),
+(73, '2022-02-21 20:45:53', 20),
+(74, '2022-02-21 21:37:57', 21),
+(75, '2022-02-21 21:38:19', 21);
 
 -- --------------------------------------------------------
 
@@ -214,7 +239,10 @@ INSERT INTO `usuarios` (`id`, `Usuario`, `Contrasenna`, `TipoProducto`) VALUES
 (9, 'Abel', '0cc175b9c0f1b6a831c399e269772661', NULL),
 (11, 'Jose', 'f5e5038d75ee209f3cfcba015d731af0', NULL),
 (17, 'Dre', 'f79c62855614bd4d923016896a96ea81', NULL),
-(18, 'Javier', 'c1a1ddd595c77d18e1bc5317a2ac92a5', NULL);
+(18, 'Javier', 'c1a1ddd595c77d18e1bc5317a2ac92a5', NULL),
+(19, 'Profesor', 'c1a1ddd595c77d18e1bc5317a2ac92a5', NULL),
+(20, 'Jaime', 'c1a1ddd595c77d18e1bc5317a2ac92a5', NULL),
+(21, 'Alberto', 'c1a1ddd595c77d18e1bc5317a2ac92a5', NULL);
 
 --
 -- Indexes for dumped tables
@@ -260,13 +288,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `pedido`
 --
 ALTER TABLE `pedido`
-  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `idPedido` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
