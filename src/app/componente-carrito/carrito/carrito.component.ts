@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ObtenerProductosService } from '../../services/obtener-productos.service';
-import {ComprasService}from '../../services/compras.service';
-import{CarritoService}from'../../services/carrito.service';
+import { ComprasService } from '../../services/compras.service';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-carrito',
@@ -13,51 +13,42 @@ import{CarritoService}from'../../services/carrito.service';
 export class CarritoComponent implements OnInit {
 
   constructor(private snackBar: MatSnackBar,
-    private obtenerProductosService:ObtenerProductosService,
-    private compras:ComprasService,
-    private carrito:CarritoService) { }
+    private obtenerProductosService: ObtenerProductosService,
+    private compras: ComprasService,
+    private carrito: CarritoService) { }
 
 
   cabecera: string[] = ['Producto', 'Cantidad', 'Precio Unitario', 'Precio Total', 'Eliminar'];
-  productos: any='';
-  precioTotal:any=0;
+  productos: any = [];
+  precioTotal: any = 0;
 
 
   ngOnInit(): void {
-   
-      this.carrito.obtenerCarrito(this.obtenerIdUsuario())
-        .subscribe((result: any) => {
-          let intermediario: any = result;
-          let productosOrdenados = this.ordenarProductos(intermediario);
-          this.obtenerProductosService.devolverProductos()
-          .subscribe((result)=>{
-            let intermediario:any=result;
-            let productosJSON = intermediario.productos;
-             for (let i =0 ;i<productosOrdenados.length;i++){
-              for (let j=0;j<productosJSON.length;j++){
-                if (productosJSON[j].nombre==productosOrdenados[i].producto){
-                  productosOrdenados[i].precioUnitario=productosJSON[i].precio.split(" ")[0]+" Euros";
-                  productosOrdenados[i].precioTotal=productosJSON[i].precio.split(" ")[0] * productosOrdenados[i].cantidad+" Euros";
+
+    this.carrito.obtenerCarrito(this.obtenerIdUsuario())
+      .subscribe((result: any) => {
+        let carrito: any = result;
+        this.obtenerProductosService.devolverProductos()
+          .subscribe((result) => {
+            this.productos = [];
+            let productos: any = result;
+
+            for (let i = 0; i < carrito.length; i++) {
+              for (let j = 0; j < productos.productos.length; j++) {
+                if (carrito[i].producto == productos.productos[j].nombre) {
+                  let producto = new Producto(carrito[i].producto, productos.productos[j].precio, carrito[i].cantidad);
+                  this.productos[this.productos.length] = producto;
                 }
               }
-             }
-             this.productos=productosOrdenados;
-             this.obtenerPrecioTotal ();
+            }
+
+            this.obtenerPrecioTotal();
+
           });
 
-        });
-    
-  }
+      });
 
-  comprobarSesionIniciada() {
 
-    let sesion = localStorage.getItem("sesion");
-    let existe = false;
-
-    if (sesion != null) {
-      existe = true;
-    }
-    return existe;
   }
 
   obtenerIdUsuario() {
@@ -66,98 +57,69 @@ export class CarritoComponent implements OnInit {
     return sesion.id;
   }
 
-  ordenarProductos(carrito: any) {
 
-    let arrayOrdenado = new Array();
-    let contador = 0;
-
-    for (let i = 0; i < carrito.length; i++) {
-      let producto = carrito[i];
-      let posicion = this.isInclude(producto, arrayOrdenado);
-      if (posicion > -1) {
-        arrayOrdenado[posicion].anandirProducto();
-      } else {  
-           
-        arrayOrdenado[contador++] = new ProductoOrdenado(producto.idUsuario, producto.producto,0,0);
-      }
-    }
-
-    return arrayOrdenado;
-  }
-
-  isInclude(producto: any, arrayOrdenado: any) {
-
-    let posicion = -1;
-    for (let i = 0; i < arrayOrdenado.length; i++) {
-      if (producto.producto == arrayOrdenado[i].producto) {
-        posicion = i;
-      }
-    }
-
-    return posicion;
-  }
-
-  eliminarProducto(producto: string) {
+  eliminarProducto(producto: string,cantidadProducto:number) {
     let numeroEliminaciones: number = 0;
     if (document.getElementById(producto)) {
       let input = <HTMLInputElement>document.getElementById(producto);
       numeroEliminaciones = parseInt(input.value);
+      if (numeroEliminaciones<=cantidadProducto&&numeroEliminaciones>0) {
+        this.carrito.eliminarProducto(this.obtenerIdUsuario(), producto, numeroEliminaciones)
+          .subscribe((result) => {
+
+            this.ngOnInit();
+
+          })
+      }else{
+        this.snackBar.open("La cantidad de producto a eliminar no puede ser ni mayor que la cantidad disponible ni menor que 0");
+      }
     }
 
-    this.carrito.eliminarProducto(this.obtenerIdUsuario(), producto, numeroEliminaciones)
-      .subscribe((result) => {
 
-        this.ngOnInit();
-
-      })
   }
 
-  comprarProductos(){
+  comprarProductos() {
     let idUsuario = this.obtenerIdUsuario();
-    this.compras.comprarProducto(idUsuario,this.productos)
-    .subscribe((result)=>{
-      console.log(result);
-      if (result){
-        this.snackBar.open("Productos comprados con exito",'',{
-          duration: 3000,
-        });
+    this.compras.comprarProducto(idUsuario, this.productos)
+      .subscribe((result) => {
+        console.log(result);
+        if (result) {
+          this.snackBar.open("Productos comprados con exito", '', {
+            duration: 3000,
+          });
 
-        this.carrito.eliminarProductosUsuario(idUsuario)
-        .subscribe((result)=>{
-          console.log(result);
-          this.ngOnInit();
-        })
-      }else{  
-        this.snackBar.open("Ha sucedido un error");
-      }
-    });
+          this.carrito.eliminarProductosUsuario(idUsuario)
+            .subscribe((result) => {
+              console.log(result);
+              this.ngOnInit();
+            })
+        } else {
+          this.snackBar.open("Ha sucedido un error");
+        }
+      });
   }
 
-  obtenerPrecioTotal (){
-    let sumatorio =0;
-    this.productos.forEach((element:any) => {
-        sumatorio = sumatorio+parseFloat (element.precioTotal.split(" ")[0]);
+  obtenerPrecioTotal() {
+    let sumatorio = 0;
+    this.productos.forEach((element: any) => {
+      sumatorio = sumatorio + (element.precioUnitario * element.cantidad);
     });
 
-    this.precioTotal= sumatorio;
+    this.precioTotal = sumatorio;
   }
 
 }
 
 
-class ProductoOrdenado {
-  idUsuario: number;
+class Producto {
   producto: string;
-  precioTotal:number;
   precioUnitario: number;
   cantidad: number;
 
-  constructor(idUsuario: number, producto: string, precio: number, precioTotal:number) {
-    this.idUsuario = idUsuario;
+  constructor(producto: string, precio: number, cantidad: number) {
     this.producto = producto;
     this.precioUnitario = precio;
-    this.cantidad = 1;
-    this.precioTotal=precioTotal;
+    this.cantidad = cantidad;
   }
 
   anandirProducto() {

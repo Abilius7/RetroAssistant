@@ -26,7 +26,9 @@ import { ProductosCompradosComponent } from './productos-comprados/productos-com
 import { PedidoComponent } from './productos-comprados/pedido/pedido.component';
 import { ComponenteCarritoModule } from './componente-carrito/componente-carrito.module';
 import { CambioFechaPipe } from './cambio-fecha.pipe';
-import { MatToolbarModule} from '@angular/material/toolbar'; 
+import { MatToolbarModule} from '@angular/material/toolbar';
+import { PanelInstrumentosComponent } from './panel-instrumentos/panel-instrumentos.component';
+import { VelocimetroComponent } from './panel-instrumentos/velocimetro/velocimetro.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { MatToolbarModule} from '@angular/material/toolbar';
     ProductosCompradosComponent,
     PedidoComponent,
     CambioFechaPipe,
+    PanelInstrumentosComponent,
+    VelocimetroComponent
     
   ],
   imports: [

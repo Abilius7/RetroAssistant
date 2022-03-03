@@ -7,6 +7,8 @@ import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.componen
 import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { CambiarContrasennaComponent } from './cambiar-contrasenna/cambiar-contrasenna.component';
 import { ProductosCompradosComponent } from './productos-comprados/productos-comprados.component';
+import { PanelInstrumentosComponent } from './panel-instrumentos/panel-instrumentos.component';
+
 const routes: Routes = [
   {
     path:'',
@@ -39,6 +41,10 @@ const routes: Routes = [
   {
     path:"ProductosComprados",
     component:ProductosCompradosComponent
+  },
+  {
+    path:"PanelInstrumentos",
+    component:PanelInstrumentosComponent
   }
 ];
 

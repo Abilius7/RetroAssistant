@@ -1,0 +1,31 @@
+#contenedor{
+    width: 30%;
+    margin-top: 15%;
+    margin-left: 3%;
+}
+#cero {
+
+}
+
+#todo{
+    background-color: rgba(0, 128, 0, 0);
+    width: 80%;
+    height: 3px;
+    transform: rotate(-20deg);
+    
+}
+#mitad{
+    width: 50%;
+    height: 100%;
+    background-color: red;
+}
+.semi-circulo {
+    margin-left: 5%;
+    width: 100px; 
+    height: 50px; 
+    border: 2px solid #555; 
+    background: #5cb85c;
+    -moz-border-radius: 100px 100px 0 0;
+    -webkit-border-radius: 100px 100px 0 0;
+    border-radius: 100px 100px 0 0;
+}

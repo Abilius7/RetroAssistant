@@ -22,9 +22,9 @@ export class CarritoService {
     return this.http.post(this.ruta+"/eliminarProductosUsuario.php", { "id": id });
   }
 
-  annadirProducto (idUsuario:string,producto:string){
+  annadirProducto (idUsuario:string,producto:string,cantidad:number){
 
-    let parametros = {"usuario":idUsuario,"producto":producto};
+    let parametros = {"usuario":idUsuario,"producto":producto,"cantidad":cantidad};
 
     return this.http.post(this.ruta+"/annadirProducto.php",JSON.stringify(parametros));
   }

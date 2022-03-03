@@ -13,14 +13,14 @@
 
                         <div class="row">
                             <span class="col-md-6 col-xs-6">Precio Unitario {{producto.precioUnitario}} </span>
-                            <span class="col-md-6 col-xs-6">Precio Total {{producto.precioTotal}} </span>
+                            <span class="col-md-6 col-xs-6">Precio Total {{producto.precioUnitario *producto.cantidad }} </span>
                         </div>
                         <div class="row ">
                              <mat-form-field class="example-full-width col-6" appearance="fill">
                                 <mat-label>Cantidad</mat-label>
                                 <input matInput placeholder="1" id="{{producto.producto}}" value="1" type="number" min="0" max="{{producto.cantidad}}">
                             </mat-form-field>
-                            <button mat-fab  (click)="eliminarProducto(producto.producto)" class="eliminar col-6">
+                            <button mat-fab  (click)="eliminarProducto(producto.producto,producto.cantidad)" class="eliminar col-6">
                                 <mat-icon >delete</mat-icon>
                             </button> 
                         </div>

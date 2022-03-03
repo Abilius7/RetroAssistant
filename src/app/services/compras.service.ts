@@ -16,4 +16,8 @@ export class ComprasService {
   obtenerCompras (id:number){
     return this.http.post(this.ruta+"/obtenerPedidos.php",{"idUsuario":id});
   }
+
+  obtenerProductos (id:number){
+    return this.http.get(this.ruta+"/obtenerProductos.php?id="+id);
+  }
 }

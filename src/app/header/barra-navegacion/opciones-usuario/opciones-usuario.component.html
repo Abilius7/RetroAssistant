@@ -1,4 +1,5 @@
 <div>
+    <span>Nombre de Usuario: {{nombreUsuario}}</span>
 <mat-list>
     <a mat-list-item (click)="cerrarSesion()" (click)="cerrar()">
         <span mat-line>Cerrar Sesion</span>
@@ -22,6 +23,14 @@
             </span>
 
         <span mat-line>Ver servicios obtenidos</span>
+    </a>
+
+    <a *ngIf="tipoProducto.Avanzado || tipoProducto.Basico|| tipoProducto['Avanzado con instalacion']  || tipoProducto['Basico con instalacion']" mat-list-item routerLink="/PanelInstrumentos" (click)="cerrar()">
+        <span class="material-icons">
+            directions_car
+            </span>
+
+        <span mat-line>Panel de instrumentos</span>
     </a>
 
 </mat-list>
