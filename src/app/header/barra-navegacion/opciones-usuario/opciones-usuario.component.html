@@ -25,7 +25,7 @@
         <span mat-line>Ver servicios obtenidos</span>
     </a>
 
-    <a *ngIf="tipoProducto.Avanzado || tipoProducto.Basico|| tipoProducto['Avanzado con instalacion']  || tipoProducto['Basico con instalacion']" mat-list-item routerLink="/PanelInstrumentos" (click)="cerrar()">
+    <a  (click)="cerrar()" *ngIf="tipoProducto.Avanzado || tipoProducto.Basico|| tipoProducto['Avanzado con instalacion']  || tipoProducto['Basico con instalacion']" mat-list-item routerLink="/PanelInstrumentos">
         <span class="material-icons">
             directions_car
             </span>

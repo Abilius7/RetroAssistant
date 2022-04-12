@@ -28,7 +28,9 @@ import { ComponenteCarritoModule } from './componente-carrito/componente-carrito
 import { CambioFechaPipe } from './cambio-fecha.pipe';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { PanelInstrumentosComponent } from './panel-instrumentos/panel-instrumentos.component';
-import { VelocimetroComponent } from './panel-instrumentos/velocimetro/velocimetro.component';
+import {GaugesModule} from 'ng-canvas-gauges';
+import { PanelControlAdministradorComponent } from './panel-control-administrador/panel-control-administrador.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import { VelocimetroComponent } from './panel-instrumentos/velocimetro/velocimet
     PedidoComponent,
     CambioFechaPipe,
     PanelInstrumentosComponent,
-    VelocimetroComponent
+    PanelControlAdministradorComponent,
     
   ],
   imports: [
@@ -64,8 +66,8 @@ import { VelocimetroComponent } from './panel-instrumentos/velocimetro/velocimet
     MatSnackBarModule,
     MatBottomSheetModule,
     ComponenteCarritoModule,
-    MatToolbarModule
-    
+    MatToolbarModule,
+    GaugesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
