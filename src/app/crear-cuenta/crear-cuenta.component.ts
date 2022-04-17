@@ -24,7 +24,7 @@ export class CrearCuentaComponent implements OnInit {
     let comprobarContrasenna = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
     if (comprobarContrasenna.test(this.contrasenna)) {
       if (this.contrasenna == this.contrasennaRepetida) {
-        this.usuariosService.crearUsuario(this.nombreUsuario, this.contrasenna)
+        this.usuariosService.crearUsuario(this.nombreUsuario, this.contrasenna,'Usuario')
           .subscribe((result) => {
             let respuesta: any = result;
             switch (parseInt(respuesta)) {

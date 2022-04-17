@@ -29,8 +29,9 @@ import { CambioFechaPipe } from './cambio-fecha.pipe';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { PanelInstrumentosComponent } from './panel-instrumentos/panel-instrumentos.component';
 import {GaugesModule} from 'ng-canvas-gauges';
-import { PanelControlAdministradorComponent } from './panel-control-administrador/panel-control-administrador.component';
-
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { PanelAdministradorComponent } from './panel-administrador/panel-administrador.component';
 
 @NgModule({
   declarations: [
@@ -47,8 +48,7 @@ import { PanelControlAdministradorComponent } from './panel-control-administrado
     PedidoComponent,
     CambioFechaPipe,
     PanelInstrumentosComponent,
-    PanelControlAdministradorComponent,
-    
+    PanelAdministradorComponent,    
   ],
   imports: [
     BrowserModule,
@@ -67,7 +67,9 @@ import { PanelControlAdministradorComponent } from './panel-control-administrado
     MatBottomSheetModule,
     ComponenteCarritoModule,
     MatToolbarModule,
-    GaugesModule
+    GaugesModule,
+    LayoutModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

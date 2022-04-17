@@ -8,6 +8,7 @@ import { CrearCuentaComponent } from './crear-cuenta/crear-cuenta.component';
 import { CambiarContrasennaComponent } from './cambiar-contrasenna/cambiar-contrasenna.component';
 import { ProductosCompradosComponent } from './productos-comprados/productos-comprados.component';
 import { PanelInstrumentosComponent } from './panel-instrumentos/panel-instrumentos.component';
+import { PanelAdministradorComponent } from './panel-administrador/panel-administrador.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path:"PanelInstrumentos",
     component:PanelInstrumentosComponent
+  },
+  {
+    path:"panelControlAdmin",
+    component:PanelAdministradorComponent
   }
 ];
 
