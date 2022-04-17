@@ -1,0 +1,30 @@
+<div>
+    <mat-card>
+        <span>Iniciar sesion</span>
+        <form class="container">
+
+            <div class=" row ">
+                <mat-form-field class="example-full-width col-12" appearance="fill">
+                    <mat-label>Nombre de usuario</mat-label>
+                    <input matInput placeholder="Ex. Usuario" type="text" [(ngModel)]="usuario" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field class="example-full-width col-12 " appearance="fill">
+                    <mat-label>Contrasenna</mat-label>
+                    <input matInput placeholder="**************" type="password" [(ngModel)]="contrasena" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <button mat-stroked-button color="primary" class="col-8" (click)="iniciarSesion()">Iniciar Sesion</button>
+                <span>No tienes cuenta aun <a routerLink="/CrearCuenta" class="col-4" >Crea una cuenta ahora</a></span>
+            </div>
+
+
+        </form>
+
+    </mat-card>
+    <p></p>
+</div>

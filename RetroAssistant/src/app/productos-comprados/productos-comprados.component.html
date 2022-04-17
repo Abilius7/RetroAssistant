@@ -1,0 +1,12 @@
+<div *ngIf="pedidos!=''">
+    <h1>Pedidos</h1>
+    <div *ngFor="let pedido of pedidos">
+
+        <app-pedido [pedido]="pedido">pedido.fecha</app-pedido>
+    </div>
+</div>
+
+<div class="container sinDatos" *ngIf="pedidos==''">
+    <h1>No has realizado ninguna compra</h1>
+    <img src="../../assets/logoRetroAssistant.png">
+</div>

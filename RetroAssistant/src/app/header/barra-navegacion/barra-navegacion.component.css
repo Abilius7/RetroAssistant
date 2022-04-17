@@ -1,0 +1,18 @@
+.mat-option{
+    background-color: #FEECE9;
+}
+.mat-option:hover{
+    background-color: #CCD1E4;
+    
+}
+mat-toolbar{
+    background-color: #CCD1E4;
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  div{
+      margin-left: 2.5%;
+      margin-right: 2.5%;
+  }

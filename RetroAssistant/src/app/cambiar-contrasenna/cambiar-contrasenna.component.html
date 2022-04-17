@@ -1,0 +1,43 @@
+<div>
+    <mat-card>
+        <span>Cambiar contrasenna</span>
+        <form class="container">
+
+            <div class=" row ">
+                <mat-form-field class="example-full-width col-12" appearance="fill">
+                    <mat-label>Nombre de usuario</mat-label>
+                    <input matInput placeholder="Ex. Usuario" type="text" value="{{nombreUsuario}}" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="row ">
+                <mat-form-field class="example-full-width col-12 " appearance="fill">
+                    <mat-label>Contrasenna Actual</mat-label>
+                    <input matInput placeholder="************** " type="password" [(ngModel)]="contrasennaActual" [ngModelOptions]="{standalone: true} ">
+                </mat-form-field>
+            </div>
+
+            <div class="row ">
+                <mat-form-field class="example-full-width col-12 " appearance="fill">
+                    <mat-label>Nueva contrasenna</mat-label>
+                    <input matInput placeholder="************** " type="password" [(ngModel)]="contrasennaNueva" [ngModelOptions]="{standalone: true} ">
+                </mat-form-field>
+            </div>
+            <div class="row ">
+                <mat-form-field class="example-full-width col-12 " appearance="fill">
+                    <mat-label>Repite la contrasenna</mat-label>
+                    <input matInput placeholder="************** " type="password" [(ngModel)]="contrasennaRepetida" [ngModelOptions]="{standalone: true} ">
+                </mat-form-field>
+            </div>
+
+            <div class="row ">
+                <button mat-stroked-button color="primary" (click)="cambiarContrasenna()">Cambiar contrasenna</button>
+            </div>
+
+        </form>
+
+    </mat-card>
+
+</div>
+<span><br/><br/>La contrasenna tiene que tener entre 8 y 15 caracteres con una letra minuscula <br/>
+    otra minuscula un digito sin espacios en blanco y un caracter especial ($@$!%*?&)</span>

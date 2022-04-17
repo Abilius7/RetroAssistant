@@ -1,0 +1,18 @@
+<mat-card>
+    <p> Id Pedido: {{pedido.idPedido}}</p>
+    <p> Fecha Compra: {{pedido.fecha|cambioFecha}}</p>
+    <p> Precio total: {{precioTotal}}</p>
+
+    <mat-card *ngFor="let producto of productos" class="container" class="producto">
+        <div class="row">
+            <p class="col-md-6 col-xs-12">Nombre: {{producto.producto}}</p>
+            <p class="col-md-6 col-xs-12">Cantidad: {{producto.cantidad}}</p>
+        </div>
+
+        <div class="row">
+            <p class="col-md-6 col-xs-12">Precio: {{producto.precio}}</p>
+            <p class="col-md-6 col-xs-12">Precio Total: {{producto.cantidad*producto.precio}}</p>
+        </div>
+    </mat-card>
+
+</mat-card>

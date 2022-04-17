@@ -1,0 +1,43 @@
+figure {
+    display: flex;
+    margin-bottom: 2.7%;
+}
+
+figcaption{
+    
+    visibility: hidden;
+    margin-right: 5%;
+    float: right;
+}
+
+img{
+    position: relative;
+    width: auto;
+    height: auto;
+    left: 45%;
+    top: auto;
+    margin-right: 3%;
+    
+}
+
+@media (max-width: 600px) {
+    figure{
+        width: 100%;
+        align-items: center;
+
+    }
+    img{
+        position: relative;
+        width: auto;
+        height: 10%;
+        left:27%;
+        top: auto;
+        margin-right: 3%;
+        
+    }
+    figcaption{
+        margin-top: 5%;
+        display: none;
+    }
+  }
+  

@@ -1,0 +1,40 @@
+button {
+   
+    background-color: #CCD1E4;
+    width: 100%;
+
+}
+
+.botones{
+
+    background-color: #FE7E6D;
+    padding: 20px;
+    height: fit-content;
+}
+
+.comprar{
+    margin-bottom: 5%;
+}
+
+.sinDatos{
+    display: flex;
+}
+.sinDatos h1{
+    margin-right: 25%;
+    margin-top: 2%;
+}
+.eliminar{
+    width: 55px;
+    
+}
+.opciones{
+    width: 95%;
+}
+.row span{
+    margin-bottom: 5%;
+}
+mat-card{
+    margin-bottom: 5%;
+    background-color: #FEECE9;
+    padding: 20px;
+}

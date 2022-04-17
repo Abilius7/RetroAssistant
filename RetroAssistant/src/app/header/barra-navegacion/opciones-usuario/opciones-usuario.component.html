@@ -1,0 +1,45 @@
+<div>
+    <span>Nombre de Usuario: {{nombreUsuario}}</span>
+<mat-list>
+    <a mat-list-item (click)="cerrarSesion()" (click)="cerrar()">
+        <span mat-line>Cerrar Sesion</span>
+
+        <span class=" material-icons ">
+            close
+            </span>
+
+
+    </a>
+    <a mat-list-item routerLink="cambiarContrasenna" (click)="cerrar()">
+        <span class="material-icons ">
+            password
+            </span>
+
+        <span mat-line>Cambiar Contrasenna</span>
+    </a>
+    <a mat-list-item routerLink="ProductosComprados" (click)="cerrar()">
+        <span class="material-icons ">
+            shopping_bag
+            </span>
+
+        <span mat-line>Ver servicios obtenidos</span>
+    </a>
+
+    <a  (click)="cerrar()" *ngIf="tipoProducto.Avanzado || tipoProducto.Basico|| tipoProducto['Avanzado con instalacion']  || tipoProducto['Basico con instalacion']" mat-list-item routerLink="/PanelInstrumentos">
+        <span class="material-icons">
+            directions_car
+            </span>
+
+        <span mat-line>Panel de instrumentos</span>
+    </a>
+
+    <a mat-list-item routerLink="panelControlAdmin" (click)="cerrar()">
+        <span class="material-icons">
+            note
+            </span>
+
+        <span mat-line>Panel de control del administrador</span>
+    </a>
+
+</mat-list>
+</div>

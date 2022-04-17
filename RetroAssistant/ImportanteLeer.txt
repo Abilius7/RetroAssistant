@@ -1,0 +1,3 @@
+Los archivos de servidor estan en la carpeta assets se llama retroAssistant y habria que copiarla directamente al servidor.
+
+Para ejecutar los archivos de servidor se crea automaticamente con el archivo .sql una bd y un susuario para el buen funcionamiento de todo

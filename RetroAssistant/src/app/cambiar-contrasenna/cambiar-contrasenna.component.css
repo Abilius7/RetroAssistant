@@ -1,0 +1,44 @@
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-card {
+    width: 50%;
+    text-align: center;
+    background-color: #FEECE9;
+    color: black;
+}
+
+form {
+    margin-top: 3%;
+}
+
+::ng-deep .ng-tns-c90-2 {
+    margin: 0%;
+}
+
+button {
+    background-color: #FE7E6D;
+}
+
+@media (max-width: 576px) {
+    mat-card {
+        width: 96%;
+        margin-left: 2%;
+    }
+    div {
+        margin-top: 10%;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    p {
+        width: 100%;
+    }
+    button {
+        width: 100%;
+    }
+}

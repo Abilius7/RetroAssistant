@@ -1,0 +1,43 @@
+div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-card {
+    width: 50%;
+    text-align: center;
+    background-color: #FEECE9;
+    margin-left: 29%;
+}
+
+form {
+    margin-top: 3%;
+}
+
+button {
+    width: 40%;
+}
+
+p {
+    margin-left: 2%;
+    margin-right: 0%;
+    width: 25%;
+}
+
+@media (max-width: 576px) {
+    mat-card {
+        width: 96%;
+        margin-left: 2%;
+    }
+    div {
+        margin-top: 10%;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    p {
+        width: 100%;
+    }
+}

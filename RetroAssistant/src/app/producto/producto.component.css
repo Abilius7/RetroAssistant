@@ -1,0 +1,22 @@
+ img {
+     height: 50%;
+     margin-bottom: 10%;
+ }
+ 
+ button {
+     background-color: #FE7E6D;
+     height: 100%;
+     margin-top: 3%;
+     border-radius: 5px;
+ }
+ 
+ mat-form-field {
+     height: 100%;
+     margin: 0%;
+     
+ }
+h2{
+    background-color: #FEECE9;
+    text-align: center;
+    border-radius: 15px;
+}

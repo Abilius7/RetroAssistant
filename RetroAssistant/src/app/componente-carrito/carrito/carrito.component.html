@@ -1,0 +1,47 @@
+<div class="container-fluid align-top  align-items-center" *ngIf="productos!=''">
+        <div class=" row " style="margin: 0%;">
+            <div class="offset-3"></div>
+            <h1 class="col-1">Carrito</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 row " style="margin: 0%;">
+                    <mat-card class="container-fluid" *ngFor="let producto of productos" >
+                        <div class="row ">
+                            <span class="col-md-6 col-xs-6">Producto {{producto.producto}} </span>
+                            <span class="col-md-6 col-xs-6">Cantidad {{producto.cantidad}} </span>
+                        </div>
+
+                        <div class="row">
+                            <span class="col-md-6 col-xs-6">Precio Unitario {{producto.precioUnitario}} </span>
+                            <span class="col-md-6 col-xs-6">Precio Total {{producto.precioUnitario *producto.cantidad }} </span>
+                        </div>
+                        <div class="row ">
+                             <mat-form-field class="example-full-width col-6" appearance="fill">
+                                <mat-label>Cantidad</mat-label>
+                                <input matInput placeholder="1" id="{{producto.producto}}" value="1" type="number" min="0" max="{{producto.cantidad}}">
+                            </mat-form-field>
+                            <button mat-fab  (click)="eliminarProducto(producto.producto,producto.cantidad)" class="eliminar col-6">
+                                <mat-icon >delete</mat-icon>
+                            </button> 
+                        </div>
+
+                    </mat-card>
+
+
+                </div>
+                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12  ">
+                    <div class="botones">
+                    <h2>Precio total: {{precioTotal}} Euros</h2>
+                    <button mat-stroked-button class=" comprar" (click)="comprarProductos()">Comprar</button>
+                    
+                    <button mat-stroked-button routerLink="/Inicio" class="">Seguir navegando</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+<div class="container sinDatos" *ngIf="productos==''">
+    <h1>No tienes productos en el carrito</h1>
+    <img src="../../assets/logoRetroAssistant.png">
+</div>

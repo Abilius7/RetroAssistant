@@ -1,0 +1,39 @@
+<div>
+    <mat-card>
+        <span>Crear una nueva Cuenta</span>
+        <form class="container">
+
+            <div class=" row ">
+                <mat-form-field class="example-full-width col-12" appearance="fill">
+                    <mat-label>Nombre de usuario</mat-label>
+                    <input matInput placeholder="Ex. Usuario" type="text" [(ngModel)]="nombreUsuario" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field class="example-full-width col-12 " appearance="fill">
+                    <mat-label>Contrasenna</mat-label>
+                    <input matInput placeholder="**************" type="password" [(ngModel)]="contrasenna" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <mat-form-field class="example-full-width col-12 " appearance="fill">
+                    <mat-label>Repite la contrasenna</mat-label>
+                    <input matInput placeholder="**************" type="password" [(ngModel)]="contrasennaRepetida" [ngModelOptions]="{standalone: true}">
+                </mat-form-field>
+            </div>
+
+            <div class="row">
+                <button mat-stroked-button color="primary" class="col-9" (click)="crearUsuario()">Crear usuario</button>
+                <a routerLink="/InicioSesion" class="col-3">Volver a iniciar sesion</a>
+            </div>
+
+        </form>
+
+    </mat-card>
+
+    <p>La contrasenna tiene que tener entre 8 y 15 caracteres con una letra minuscula 
+        otra minuscula un digito sin espacios en blanco y un caracter especial ($@$!%*?&)</p>
+
+</div>

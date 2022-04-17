@@ -1,0 +1,12 @@
+{
+    "/retroAssistant/*": {
+        "target": "http://localhost:80",
+        "secure": false,
+        "logLevel": "debug"
+    },
+    "/arduino/*": {
+        "target": "http://localhost:8081",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

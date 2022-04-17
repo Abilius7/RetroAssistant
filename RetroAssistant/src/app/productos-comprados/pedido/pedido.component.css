@@ -1,0 +1,33 @@
+mat-card {
+    width: 50%;
+    margin-bottom: 5%;
+    margin-left: 25%;
+    text-align: center;
+    background-color:#FEECE9 ;
+}
+
+table {
+    width: 100%;
+    background-color: #CCD1E4;
+}
+
+th {
+    text-align: center;
+    color: #2F3A8F;
+}
+
+td {
+    text-align: center;
+}
+
+.producto{
+    background-color: #CCD1E4;
+}
+
+@media (max-width: 768px) {
+    mat-card {
+      width: 96%;
+      margin-left: 2%;
+    }
+  }
+  
