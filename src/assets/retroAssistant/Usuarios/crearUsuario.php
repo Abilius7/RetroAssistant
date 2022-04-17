@@ -7,6 +7,7 @@ if ($conexion->connect_errno) {
     $objDatos = json_decode(file_get_contents("php://input"));
     $nombreUsuario = $objDatos->usuario;
     $contrasenna = md5($objDatos->contrasenna);
+    $tipo=$objDatos->tipo;
 
     $usuarios = $conexion->query("SELECT * FROM usuarios WHERE Usuario = '$nombreUsuario'");
 
@@ -14,7 +15,7 @@ if ($conexion->connect_errno) {
     if ($usuario = $usuarios->fetch_array(MYSQLI_NUM)) {
         $exito=1;//El usuario ya existe
     } else {
-        $conexion->query("INSERT INTO `usuarios`( `Usuario`, `Contrasenna`) VALUES ('$nombreUsuario','$contrasenna')");
+        $conexion->query("INSERT INTO `usuarios`( `Usuario`, `Contrasenna`,`TipoUsuario`) VALUES ('$nombreUsuario','$contrasenna','$tipo')");
 
         if ($conexion->errno) {
             $exito=2;//Error en la consulta

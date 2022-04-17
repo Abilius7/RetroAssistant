@@ -19,7 +19,7 @@ if ($conexion->connect_errno) {
 
             if ($usuario['Contrasenna']==$contrasenna){
                 $objetoUsuario=array('usuario'=>$nombreUsuario,
-                                    'id'=>$usuario['id'],'error'=>"");
+                                    'id'=>$usuario['id'],'tipo'=>$usuario['TipoUsuario'],'error'=>"");
     
             }else{
                 $objetoUsuario=array('error'=>'La contrasenna no coincide');
