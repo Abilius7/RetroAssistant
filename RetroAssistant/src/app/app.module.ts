@@ -32,6 +32,7 @@ import {GaugesModule} from 'ng-canvas-gauges';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { PanelAdministradorComponent } from './panel-administrador/panel-administrador.component';
+import { CambiarDatosProductosComponent } from './cambiar-datos-productos/cambiar-datos-productos.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { PanelAdministradorComponent } from './panel-administrador/panel-adminis
     PedidoComponent,
     CambioFechaPipe,
     PanelInstrumentosComponent,
-    PanelAdministradorComponent,    
+    PanelAdministradorComponent,
+    CambiarDatosProductosComponent,
   ],
   imports: [
     BrowserModule,

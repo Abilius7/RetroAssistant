@@ -1,0 +1,28 @@
+
+    <table class="tablaProducto" *ngFor="let producto of arrayProductos;" class="productoContainer" >
+        <tr>
+            <div class="contenedorInfo">
+                <td><label>Nombre : </label><span> {{producto.nombre}}</span></td>
+            </div>
+                <td rowspan="3" ><img src="{{producto.imagen}}" width="250px" height="170px"></td>
+            
+        </tr>
+        <tr>
+            <div class="contenedorInfo">
+            <td><label>Descripcion: </label><span> {{producto.descripcion}}</span></td>
+            </div>
+        </tr>
+        <tr>
+            <div class="contenedorInfo">
+            <td><label>Precio: </label><span> {{producto.precio}} €</span></td>
+            </div>
+        </tr>
+        <div class="contenedorInfo">
+            <label>Paquete:</label>
+            <p *ngFor="let producto of producto.paquete;" class="producto">{{producto.objeto}}</p>
+        </div>
+        <tr class="buttons">
+            <td><button id="{{producto.id}}">Eliminar</button></td>
+            <td><button id="{{producto.id}}">Cambiar</button></td>
+        </tr>
+    </table>

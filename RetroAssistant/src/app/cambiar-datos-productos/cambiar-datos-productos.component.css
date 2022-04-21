@@ -1,0 +1,24 @@
+.productoContainer{
+    margin-left: 15%;
+    margin-right: 15%;
+
+    background-color: #FEECE9;
+    height: 100px;
+    margin-top: 3%;
+
+}
+.tablaProducto{
+    
+    width: 100%;
+}
+.contenedorInfo,.producto{
+    margin-left: 2%;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+.buttons button{
+    width: 200px;
+
+}
