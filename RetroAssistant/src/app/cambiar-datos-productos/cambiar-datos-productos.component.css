@@ -14,11 +14,24 @@
 .contenedorInfo,.producto{
     margin-left: 2%;
 }
-.buttons{
-    display: flex;
-    justify-content: center;
-}
-.buttons button{
-    width: 200px;
 
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons td{
+    width: 49%;
+    display: flex;
+    justify-content:right;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+.buttons td button{
+    margin: 0 auto;
+}
+
+.tdImagen{
+    width: 30%;
+    
 }

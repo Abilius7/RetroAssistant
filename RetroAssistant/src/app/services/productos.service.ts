@@ -4,14 +4,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ObtenerProductosService {
+export class ProductosService {
 
   constructor(private http: HttpClient) { }
-  devolverProductos() {
 
-    return this.http.get("/retroAssistant/Compras/obtenerProductos.php");
-
+  eliminarProducto (id:string){
+    return this.http.post("/retroAssistant/Compras/eliminarProducto.php",{'id':id});
   }
-
-
-} 
+}

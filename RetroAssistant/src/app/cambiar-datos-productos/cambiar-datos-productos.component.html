@@ -4,7 +4,7 @@
             <div class="contenedorInfo">
                 <td><label>Nombre : </label><span> {{producto.nombre}}</span></td>
             </div>
-                <td rowspan="3" ><img src="{{producto.imagen}}" width="250px" height="170px"></td>
+             
             
         </tr>
         <tr>
@@ -15,6 +15,8 @@
         <tr>
             <div class="contenedorInfo">
             <td><label>Precio: </label><span> {{producto.precio}} €</span></td>
+            <td rowspan="3" class="tdImagen"><img src="{{producto.imagen}}" width="250px" height="170px"></td>
+            
             </div>
         </tr>
         <div class="contenedorInfo">
@@ -22,7 +24,8 @@
             <p *ngFor="let producto of producto.paquete;" class="producto">{{producto.objeto}}</p>
         </div>
         <tr class="buttons">
-            <td><button id="{{producto.id}}">Eliminar</button></td>
+            <td><button  (click)="eliminar(producto.imagen)">Eliminar</button></td>
             <td><button id="{{producto.id}}">Cambiar</button></td>
+            <td></td>
         </tr>
     </table>
