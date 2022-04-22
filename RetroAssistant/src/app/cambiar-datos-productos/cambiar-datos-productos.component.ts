@@ -24,9 +24,19 @@ export class CambiarDatosProductosComponent implements OnInit {
   eliminar (id:string){
     this.httpProducto.eliminarProducto(id)
     .subscribe((response)=>{
-      console.log(response);
-      alert(response);
+      this.ngOnInit();
     })
+  }
+  cambiar (id:string){
+    let tabla:any = document.querySelector('.tablaProducto');
+    let spans: any=tabla.querySelectorAll('span');
+    for (let i=0;i<spans.length;i++){
+      let elemento = spans[i].innerHTML =spans[i].hidden=true;
+    }
+    let inputs = tabla.querySelectorAll('input,textarea');
+    for (let i=0;i<inputs.length;i++){
+      let elemento = inputs[i].innerHTML =inputs[i].hidden=false;
+    }
   }
 
 }

@@ -1,7 +1,7 @@
 .productoContainer{
     margin-left: 15%;
     margin-right: 15%;
-
+    width: 60%;
     background-color: #FEECE9;
     height: 100px;
     margin-top: 3%;
@@ -9,7 +9,7 @@
 }
 .tablaProducto{
     
-    width: 100%;
+    
 }
 .contenedorInfo,.producto{
     margin-left: 2%;
@@ -34,4 +34,7 @@
 .tdImagen{
     width: 30%;
     
+}
+.tdImagen img{
+    margin-top: 10%;
 }
