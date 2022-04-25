@@ -1,0 +1,40 @@
+.productoContainer{
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 60%;
+    background-color: #FEECE9;
+    height: 100px;
+    margin-top: 3%;
+
+}
+.tablaProducto{
+    
+    
+}
+.contenedorInfo,.producto{
+    margin-left: 2%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons td{
+    width: 49%;
+    display: flex;
+    justify-content:right;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+.buttons td button{
+    margin: 0 auto;
+}
+
+.tdImagen{
+    width: 30%;
+    
+}
+.tdImagen img{
+    margin-top: 10%;
+}

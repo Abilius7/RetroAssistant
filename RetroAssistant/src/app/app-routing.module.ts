@@ -9,6 +9,7 @@ import { CambiarContrasennaComponent } from './cambiar-contrasenna/cambiar-contr
 import { ProductosCompradosComponent } from './productos-comprados/productos-comprados.component';
 import { PanelInstrumentosComponent } from './panel-instrumentos/panel-instrumentos.component';
 import { PanelAdministradorComponent } from './panel-administrador/panel-administrador.component';
+import { CambiarDatosProductosComponent } from './cambiar-datos-productos/cambiar-datos-productos.component';
 
 const routes: Routes = [
   {
@@ -49,8 +50,14 @@ const routes: Routes = [
   },
   {
     path:"panelControlAdmin",
-    component:PanelAdministradorComponent
-  }
+    component:PanelAdministradorComponent,
+    children:[
+      {
+        path:"cambiarDatos",
+        component:CambiarDatosProductosComponent
+      },
+    ]
+  },
 ];
 
 @NgModule({
