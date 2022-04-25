@@ -71,7 +71,7 @@ import { CambiarDatosProductosComponent } from './cambiar-datos-productos/cambia
     MatToolbarModule,
     GaugesModule,
     LayoutModule,
-    MatSidenavModule
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
