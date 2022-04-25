@@ -28,15 +28,40 @@ export class CambiarDatosProductosComponent implements OnInit {
     })
   }
   cambiar (id:string){
-    let tabla:any = document.querySelector('.tablaProducto');
-    let spans: any=tabla.querySelectorAll('span');
-    for (let i=0;i<spans.length;i++){
-      let elemento = spans[i].innerHTML =spans[i].hidden=true;
+
+    
+    let tabla:any = document.querySelector('.id'+id);
+    let visualizarInputs = true;
+    if (tabla.querySelector('span').hidden==true){
+
+      visualizarInputs=false;
     }
-    let inputs = tabla.querySelectorAll('input,textarea');
+
+    let spans: any=tabla.querySelectorAll('span,img');
+    for (let i=0;i<spans.length;i++){
+      let elemento = spans[i] ;
+      elemento.hidden=visualizarInputs;
+    }
+    let inputs = tabla.querySelectorAll('input,textarea,.inputImg,.botonesEliminar');
     for (let i=0;i<inputs.length;i++){
-      let elemento = inputs[i].innerHTML =inputs[i].hidden=false;
+      let elemento = inputs[i];
+      elemento.hidden=!visualizarInputs;
     }
   }
 
+  eliminarObjeto (objeto:string,idProducto:number){
+
+    this.httpProducto.eliminarObjeto(objeto,idProducto)
+    .subscribe((result)=>{
+      if (result){
+        this.ngOnInit();
+      }else{
+        alert('Ha ocurrido un problema');
+      }
+    })
+  }
+
+  annadirObjeto (){
+    
+  }
 }

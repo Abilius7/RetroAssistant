@@ -1,27 +1,32 @@
-<table class="tablaProducto productoContainer" *ngFor="let producto of arrayProductos;" >
+<table class="tablaProducto productoContainer id{{producto.idProducto}}" *ngFor="let producto of arrayProductos;" >
     <tr>
         <div class="contenedorInfo">
-            <td><label>Nombre : </label><span> {{producto.nombre}}</span><input id="nombre" hidden></td>
+            <td><label>Nombre : </label><span> {{producto.nombre}}</span><input id="nombre" hidden value="{{producto.nombre}}"></td>
         </div>
 
 
     </tr>
     <tr>
         <div class="contenedorInfo">
-            <td><label>Descripcion: </label><span> {{producto.descripcion}}</span><textarea id="descripcion" hidden width="100px"></textarea></td>
+            <td><label>Descripcion: </label><span> {{producto.descripcion}}</span><textarea id="descripcion" hidden width="100px" value="{{producto.descripcion}}"></textarea></td>
         </div>
     </tr>
     <tr>
         <div class="contenedorInfo">
-            <td><label>Precio: </label><span> {{producto.precio}} €</span><input id="precio" hidden></td>
-            <td rowspan="3" class="tdImagen"><img src="{{producto.imagen}}" width="250px" height="170px"><input
-                    id="imagen" hidden></td>
+            <td><label>Precio: </label><span> {{producto.precio}} €</span><input id="precio" hidden value="{{producto.precio}}"></td>
+            <td rowspan="3" class="tdImagen"><img src="{{producto.imagen}}" width="250px" height="170px">
+                <div class="inputImg" hidden><label >Cambiar la imagen</label><input id="imagen" value="{{producto.imagen}}"></div></td>
 
         </div>
     </tr>
     <div class="contenedorInfo">
         <label>Paquete:</label>
-        <p *ngFor="let producto of producto.paquete;" class="producto">{{producto.objeto}}</p>
+        <div *ngFor="let producto of producto.paquete;" >
+            <label class="producto">{{producto.objeto}}</label>
+            <button (click)="eliminarObjeto(producto.objeto,producto.producto)" class="botonesEliminar" hidden>Eliminar</button>
+        </div>
+        <button (click)="annadirObjeto ()" hidden class="botonesEliminar">Annadir Objetos</button>
+        <label>Nombre objeto</label><input id="nuevoObjeto">
     </div>
     <tr class="buttons">
         <td><button (click)="eliminar(producto.idProducto)">Eliminar</button></td>

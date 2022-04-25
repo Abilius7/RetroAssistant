@@ -11,4 +11,7 @@ export class ProductosService {
   eliminarProducto (id:string){
     return this.http.post("/retroAssistant/Compras/eliminarProducto.php",{'id':id});
   }
+  eliminarObjeto (objeto:string,idProducto:number){
+    return this.http.post("/retroAssistant/Compras/eliminarObjetoDeProducto.php",{'objeto':objeto,'idProducto':idProducto});
+  }
 }

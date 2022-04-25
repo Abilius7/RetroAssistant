@@ -11,8 +11,11 @@ if ($conexion->connect_errno) {
     $respuesta= ["Error"=>"Error de conexion"];
 } else {
     $objDatos = json_decode(file_get_contents("php://input"));
-    $id = $objDatos->id;
-    $respuesta=$conexion->query("DELETE FROM productos WHERE idProducto = '$id'");
+    
+    $objeto = $objDatos->objeto;
+    $id = $objDatos->idProducto;
+
+    $respuesta=$conexion->query("DELETE FROM paquete WHERE producto = '$id' AND objeto='$objeto'");
     
 }
 print json_encode($respuesta);
