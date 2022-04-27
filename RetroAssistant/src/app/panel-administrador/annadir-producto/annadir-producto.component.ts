@@ -9,7 +9,15 @@ export class AnnadirProductoComponent implements OnInit {
 
   constructor() { }
 
+  nombre:string='';
+  precio:number=0;
+  descripcion:string='';
+  imagen:string='';
+
   ngOnInit(): void {
+  }
+  annadirProducto(){
+    
   }
 
 }

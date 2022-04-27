@@ -10,7 +10,7 @@ import { ProductosCompradosComponent } from './productos-comprados/productos-com
 import { PanelInstrumentosComponent } from './panel-instrumentos/panel-instrumentos.component';
 import { PanelAdministradorComponent } from './panel-administrador/panel-administrador.component';
 import { CambiarDatosProductosComponent } from './panel-administrador/cambiar-datos-productos/cambiar-datos-productos.component';
-
+import { AnnadirProductoComponent } from './panel-administrador/annadir-producto/annadir-producto.component';
 const routes: Routes = [
   {
     path:'',
@@ -55,6 +55,10 @@ const routes: Routes = [
       {
         path:"cambiarDatos",
         component:CambiarDatosProductosComponent
+      },
+      {
+        path:"annadirProducto",
+        component:AnnadirProductoComponent
       },
     ]
   },

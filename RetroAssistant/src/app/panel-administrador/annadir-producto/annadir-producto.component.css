@@ -1,0 +1,54 @@
+
+.contenedorDeProductos{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    left: 5%;
+    width: 100%;
+}
+.productoContainer{
+    width: 60%;
+    background-color: #FEECE9;
+    height: 100px;
+    margin-top: 3%;
+    align-self: center;
+
+}
+
+.contenedorInfo,.producto{
+     margin-left: 2%; 
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons td{
+    width: 49%;
+    display: flex;
+    justify-content:right;
+    /* margin-bottom: 1%;
+    margin-top: 1%; */
+}
+.buttons td button{
+    margin: 0 auto;
+}
+
+.tdImagen{
+    width: 30%;
+    
+}
+
+@media only screen and (max-width: 452px) {
+    .imagen{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: row;
+        position: absolute;
+        left: 0%;
+        width: 100%;
+    }
+}
