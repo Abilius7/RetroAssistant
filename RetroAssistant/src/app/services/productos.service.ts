@@ -17,4 +17,7 @@ export class ProductosService {
   annadirObjeto (nombreObjeto:string,idProducto:number){
     return this.http.post("/retroAssistant/Compras/annadirObjetoProducto.php",{'objeto':nombreObjeto,'idProducto':idProducto});
   }
+  actualizarProducto (nombre:string,descripcion:string,precio:Number,imagen:string,idProducto:number){
+    return this.http.post("/retroAssistant/Compras/actualizacionDatosProducto.php",{'nombre':nombre,'idProducto':idProducto,'descripcion':descripcion,'precio':precio,'imagen':imagen});
+  }
 }

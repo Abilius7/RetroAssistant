@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ObtenerProductosService } from '../services/obtener-productos.service';
-import { ProductosService } from '../services/productos.service';
+import { ObtenerProductosService } from '../../services/obtener-productos.service';
+import { ProductosService } from '../../services/productos.service';
 
 
 @Component({
@@ -29,15 +29,24 @@ export class CambiarDatosProductosComponent implements OnInit {
       this.ngOnInit();
     })
   }
-  cambiar (id:string){
+  cambiar (id:number){
 
+    let nombre:any = document.querySelector('#nombre'+id);
+    let descripcion:any = document.querySelector('#descripcion'+id);
+    let imagen:any = document.querySelector('#imagen'+id);
+    let precio:any = document.querySelector('#precio'+id);
     
     let tabla:any = document.querySelector('.id'+id);
     let visualizarInputs = true;
     if (tabla.querySelector('span').hidden==true){
       visualizarInputs=false;
+      this.httpProducto.actualizarProducto(nombre.value,descripcion.value,precio.value,imagen.value,id)
+      .subscribe((result)=>{
+        console.log(result)
+        this.ngOnInit();
+      })
     }
-
+    
     let spans: any=tabla.querySelectorAll('span,img');
     for (let i=0;i<spans.length;i++){
       let elemento = spans[i] ;
@@ -63,8 +72,8 @@ export class CambiarDatosProductosComponent implements OnInit {
   }
 
   annadirObjeto (idProduto:number){
-
-    this.httpProducto.annadirObjeto(this.nombreProductoNuevo,idProduto)
+    let objeto:any = document.querySelector("#nuevoObjeto"+idProduto);
+    this.httpProducto.annadirObjeto(objeto.value,idProduto)
     .subscribe((result)=>{
       
       if (result){

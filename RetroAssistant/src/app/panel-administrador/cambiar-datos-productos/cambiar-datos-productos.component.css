@@ -1,18 +1,20 @@
+.contenedorDeProductos{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 .productoContainer{
-    margin-left: 15%;
-    margin-right: 15%;
+
     width: 60%;
     background-color: #FEECE9;
     height: 100px;
     margin-top: 3%;
+    align-self: center;
 
 }
-.tablaProducto{
-    
-    
-}
+
 .contenedorInfo,.producto{
-    margin-left: 2%;
+     margin-left: 2%; 
 }
 
 .buttons {
@@ -24,8 +26,8 @@
     width: 49%;
     display: flex;
     justify-content:right;
-    margin-bottom: 1%;
-    margin-top: 1%;
+    /* margin-bottom: 1%;
+    margin-top: 1%; */
 }
 .buttons td button{
     margin: 0 auto;
@@ -36,5 +38,9 @@
     
 }
 .tdImagen img{
-    margin-top: 10%;
+    /* margin-top: 10%; */
+}
+
+@media only screen and (max-width: 600px) {
+
 }
