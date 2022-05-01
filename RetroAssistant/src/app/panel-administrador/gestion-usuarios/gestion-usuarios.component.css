@@ -1,0 +1,11 @@
+table  {
+    width: 25%;
+}
+
+app-gestion-usuarios[_ngcontent-c4]{
+    width: 100%;
+}
+th .mat-header-cell {
+    text-align: center;
+}
+

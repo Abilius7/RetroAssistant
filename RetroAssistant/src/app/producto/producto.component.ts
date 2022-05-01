@@ -46,7 +46,7 @@ export class ProductoComponent implements OnInit {
 
   annadirCarrito() {
     if (this.comprobarSesionIniciada()) {
-      if (this.cantidadProducto > 1 && this.cantidadProducto < 20) {
+      if (this.cantidadProducto > 0 && this.cantidadProducto < 20) {
         let exito = false;
         let producto = this.nombreProducto;
         let localStorageUsuario: any = localStorage.getItem("sesion");

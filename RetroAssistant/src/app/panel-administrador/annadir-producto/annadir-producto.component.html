@@ -12,18 +12,16 @@
         </tr>
         <tr>
             <div class="contenedorInfo">
-                <td><label>Descripcion :  </label><input type="number" [(ngModel)]="descripcion" /></td>
+                <td><label>Descripcion :  </label><textarea [(ngModel)]="descripcion"></textarea></td>
             </div>
         </tr>
         <tr>
             <div class="contenedorInfo imagen">
                 <td><label>Imagen :  </label><input type="text" [(ngModel)]="imagen" /></td>
                 <td rowspan="3" class="tdImagen"><img src="{{imagen}}" width="250px" height="170px">
-                   
-
             </div>
         </tr>
-        <tr><button (click)="annadirProducto()">Añadir producto</button></tr>
+        <tr><button mat-stroked-button (click)="annadirProducto()">Añadir producto</button></tr>
     </table>
 </div>
 

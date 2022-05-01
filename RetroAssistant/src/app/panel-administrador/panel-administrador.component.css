@@ -9,8 +9,14 @@
     z-index: 100;
 
 }
+button{
+    background-color: #FE7E6D;
+}
 aside{
     width: 15%;
+}
+app-gestion-usuarios[_ngcontent-c4]{
+    width: 100%;
 }
 
 @media only screen and (max-width: 600px) {

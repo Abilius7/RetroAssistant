@@ -11,6 +11,7 @@ import { PanelInstrumentosComponent } from './panel-instrumentos/panel-instrumen
 import { PanelAdministradorComponent } from './panel-administrador/panel-administrador.component';
 import { CambiarDatosProductosComponent } from './panel-administrador/cambiar-datos-productos/cambiar-datos-productos.component';
 import { AnnadirProductoComponent } from './panel-administrador/annadir-producto/annadir-producto.component';
+import { GestionUsuariosComponent } from './panel-administrador/gestion-usuarios/gestion-usuarios.component';
 const routes: Routes = [
   {
     path:'',
@@ -49,7 +50,7 @@ const routes: Routes = [
     component:PanelInstrumentosComponent
   },
   {
-    path:"panelControlAdmin",
+    path:"PanelControlAdmin",
     component:PanelAdministradorComponent,
     children:[
       {
@@ -59,6 +60,10 @@ const routes: Routes = [
       {
         path:"annadirProducto",
         component:AnnadirProductoComponent
+      },
+      {
+        path:"gestionarUsuarios",
+        component:GestionUsuariosComponent
       },
     ]
   },

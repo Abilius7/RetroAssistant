@@ -18,6 +18,10 @@ export class UsuariosService {
     return this.http.post(this.ruta+"/crearUsuario.php",{"usuario":usuario,"contrasenna":contrasenna,'tipo':tipo});
   }
   cambiarContrasenna (usuario:string,contrasenna:string,contrasennaNueva:string){
-    return this.http.post(this.ruta+"/cambiarContrasenna.php",{"nombreUsuario":usuario,"contrasenna":contrasenna,"contrasennaNueva":contrasennaNueva})
+    return this.http.post(this.ruta+"/cambiarContrasenna.php",{"nombreUsuario":usuario,"contrasenna":contrasenna,"contrasennaNueva":contrasennaNueva});
+  }
+
+  obtenerTodosUsuarios (){
+    return this.http.post(this.ruta+"/obtenerUsuarios.php",{});
   }
 }

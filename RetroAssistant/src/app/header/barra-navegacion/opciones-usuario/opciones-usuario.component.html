@@ -25,7 +25,7 @@
         <span mat-line>Ver servicios obtenidos</span>
     </a>
 
-    <a  (click)="cerrar()" *ngIf="tipoProducto.Avanzado || tipoProducto.Basico|| tipoProducto['Avanzado con instalacion']  || tipoProducto['Basico con instalacion']" mat-list-item routerLink="/PanelInstrumentos">
+    <a  mat-list-item routerLink="PanelInstrumentos" (click)="cerrar()" *ngIf="permisoParaPanelInstrumentos">
         <span class="material-icons">
             directions_car
             </span>
@@ -33,13 +33,14 @@
         <span mat-line>Panel de instrumentos</span>
     </a>
 
-    <a mat-list-item routerLink="panelControlAdmin" (click)="cerrar()">
+  <a mat-list-item routerLink="PanelControlAdmin" (click)="cerrar()" *ngIf="tipoUsuario=='Administrador'">
         <span class="material-icons">
             note
             </span>
 
         <span mat-line>Panel de control del administrador</span>
     </a>
+    
 
 </mat-list>
 </div>

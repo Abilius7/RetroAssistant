@@ -37,10 +37,27 @@
     width: 30%;
     
 }
-.tdImagen img{
-    /* margin-top: 10%; */
+button{
+    background-color: #FE7E6D;
+    height: 35px;
 }
 
-@media only screen and (max-width: 600px) {
-
+@media only screen and (max-width: 752px) {
+    
+    .contenedorDeProductos{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        left: 2%;
+        width: 95%;
+    }
+    .imagen{
+        display: flex;
+        flex-wrap: wrap;
+        width: 25%;
+    }
+    .imagen img{
+        width: 180px;
+    }
 }

@@ -42,20 +42,23 @@ export class CambiarDatosProductosComponent implements OnInit {
       visualizarInputs=false;
       this.httpProducto.actualizarProducto(nombre.value,descripcion.value,precio.value,imagen.value,id)
       .subscribe((result)=>{
-        console.log(result)
         this.ngOnInit();
       })
     }
     
-    let spans: any=tabla.querySelectorAll('span,img');
+    let spans: any=tabla.querySelectorAll('.dato,img');
     for (let i=0;i<spans.length;i++){
       let elemento = spans[i] ;
       elemento.hidden=visualizarInputs;
+      
     }
     let inputs = tabla.querySelectorAll('input,textarea,.inputImg,.botonesEliminar');
     for (let i=0;i<inputs.length;i++){
       let elemento = inputs[i];
       elemento.hidden=!visualizarInputs;
+      for (let i=0;i<elemento.childNodes.length;i++){
+        elemento.childNodes[i].hidden=!visualizarInputs;
+      }
     }
   }
 
