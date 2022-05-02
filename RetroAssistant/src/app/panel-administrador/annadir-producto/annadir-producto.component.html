@@ -21,6 +21,22 @@
                 <td rowspan="3" class="tdImagen"><img src="{{imagen}}" width="250px" height="170px">
             </div>
         </tr>
+        <tr>
+            <td>
+                <table>
+                    <thead><tr><th>Objetos:</th></tr></thead>
+                    <tbody>
+                        <tr *ngFor="let objeto of arrayObjetos; let i = index" >
+                            <td> {{objeto}}</td>
+                            <td> <button mat-stroked-button (click)="eliminarObjeto(i)">Eliminar Objeto</button></td>
+                        </tr>
+                        <tr>
+                            <td><input  [(ngModel)]="objetoNuevo"><button mat-stroked-button (click)="annadirObjeto()">Annadir Objeto </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
         <tr><button mat-stroked-button (click)="annadirProducto()">Añadir producto</button></tr>
     </table>
 </div>

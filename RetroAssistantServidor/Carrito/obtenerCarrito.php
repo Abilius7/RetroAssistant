@@ -6,7 +6,7 @@ if ($conexion->connect_errno) {
 } else {
     $productos = array();
     $objDatos = json_decode(file_get_contents("php://input"));
-    $idUsuario = 23;//$objDatos->id;
+    $idUsuario = $objDatos->id;
     $resultado = $conexion->query("SELECT * FROM carritos WHERE idUsuario = $idUsuario;");
     $contador = 0;
 

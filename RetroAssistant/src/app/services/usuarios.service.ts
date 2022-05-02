@@ -24,4 +24,11 @@ export class UsuariosService {
   obtenerTodosUsuarios (){
     return this.http.post(this.ruta+"/obtenerUsuarios.php",{});
   }
+  eliminarUsuario (id:number){
+    return this.http.post(this.ruta+"/eliminarUsuario.php",{id:id});
+  }
+
+  modificarDatosUsuario (id:number,nombre:string,tipoUsuario:string,email:string){
+    return this.http.post(this.ruta+"/cambiarDatosUsuario.php",{id:id,nombre:nombre,email:email,tipoUsuario:tipoUsuario});
+  }
 }

@@ -20,8 +20,8 @@ export class ProductosService {
   actualizarProducto (nombre:string,descripcion:string,precio:Number,imagen:string,idProducto:number){
     return this.http.post("/retroAssistant/Compras/actualizacionDatosProducto.php",{'nombre':nombre,'idProducto':idProducto,'descripcion':descripcion,'precio':precio,'imagen':imagen});
   }
-  annadirProducto (nombre:string,descripcion:string,precio:Number,imagen:string){
-    return this.http.post("/retroAssistant/Compras/annadirProducto.php",{'nombre':nombre,'descripcion':descripcion,'precio':precio,'imagen':imagen});
+  annadirProducto (nombre:string,descripcion:string,precio:Number,imagen:string,arrayObjetos:string[]){
+    return this.http.post("/retroAssistant/Compras/annadirProducto.php",{'nombre':nombre,'descripcion':descripcion,'precio':precio,'imagen':imagen,'arrayObjetos':arrayObjetos});
   }
   
 }

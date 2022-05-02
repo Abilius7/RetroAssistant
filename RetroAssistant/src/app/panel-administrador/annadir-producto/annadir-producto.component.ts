@@ -15,6 +15,8 @@ export class AnnadirProductoComponent implements OnInit {
   precio:number=0;
   descripcion:string='';
   imagen:string='';
+  arrayObjetos:string[]=[];
+  objetoNuevo:string='';
 
   ngOnInit(): void {
   }
@@ -22,7 +24,7 @@ export class AnnadirProductoComponent implements OnInit {
     let snackBarRef = this.snack.open('Quieres annadir el producto', 'Aceptar');
     snackBarRef.onAction().subscribe(() => {
 
-      this.productosService.annadirProducto(this.nombre,this.descripcion,this.precio,this.imagen)
+      this.productosService.annadirProducto(this.nombre,this.descripcion,this.precio,this.imagen,this.arrayObjetos)
       .subscribe((response)=>{
         if (!response){
           alert('No ha podido annadir el producto correctamente');
@@ -39,4 +41,11 @@ export class AnnadirProductoComponent implements OnInit {
     
   }
 
+  annadirObjeto(){
+    this.arrayObjetos.push(this.objetoNuevo);
+    this.objetoNuevo='';
+  }
+  eliminarObjeto(indice:number){
+    this.arrayObjetos.splice(indice, 1);
+  }
 }

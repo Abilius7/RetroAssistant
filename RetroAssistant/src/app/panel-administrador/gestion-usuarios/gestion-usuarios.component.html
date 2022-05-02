@@ -2,29 +2,32 @@
 
     <ng-container matColumnDef="ID">
       <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.id}}</td>
     </ng-container>
   
     <ng-container matColumnDef="Usuario">
       <th mat-header-cell *matHeaderCellDef> Usuario </th>
-      <td mat-cell *matCellDef="let element"> {{element.Usuario}} </td>
+      <td mat-cell *matCellDef="let element"> <input value="{{element.Usuario}}"></td>
     </ng-container>
   
-    <!-- Weight Column -->
     <ng-container matColumnDef="TipoUsuario">
       <th mat-header-cell *matHeaderCellDef> Tipo de Usuario </th>
-      <td mat-cell *matCellDef="let element"> {{element.TipoUsuario}} </td>
+      <td mat-cell *matCellDef="let element"><input value="{{element.TipoUsuario}}"></td>
     </ng-container>
-  
-    <!-- Symbol Column -->
+
     <ng-container matColumnDef="Email">
       <th mat-header-cell *matHeaderCellDef> Email </th>
-      <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+      <td mat-cell *matCellDef="let element"><input value="{{element.Email}}">  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Cambiar">
+      <th mat-header-cell *matHeaderCellDef> Cambiar usuario </th>
+      <td mat-cell *matCellDef="let element"><button mat-stroked-button (click)="cambiarUsuario($event)">Cambiar</button> </td>
     </ng-container>
 
     <ng-container matColumnDef="Eliminar">
       <th mat-header-cell *matHeaderCellDef> Eliminar usuario </th>
-      <td mat-cell *matCellDef="let element"> <button>Eliminar</button> </td>
+      <td mat-cell *matCellDef="let element"> <button mat-stroked-button (click)="eliminarUsuario (element.id)">Eliminar</button> </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
