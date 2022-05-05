@@ -34,8 +34,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { PanelAdministradorComponent } from './panel-administrador/panel-administrador.component';
 import { CambiarDatosProductosComponent } from './panel-administrador/cambiar-datos-productos/cambiar-datos-productos.component';
 import { AnnadirProductoComponent } from './panel-administrador/annadir-producto/annadir-producto.component';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { GestionUsuariosComponent } from './panel-administrador/gestion-usuarios/gestion-usuarios.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -56,6 +56,8 @@ import { GestionUsuariosComponent } from './panel-administrador/gestion-usuarios
     CambiarDatosProductosComponent,
     AnnadirProductoComponent,
     GestionUsuariosComponent,
+
+    
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,7 @@ import { GestionUsuariosComponent } from './panel-administrador/gestion-usuarios
     GaugesModule,
     LayoutModule,
     MatSidenavModule,
-    SweetAlert2Module
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
