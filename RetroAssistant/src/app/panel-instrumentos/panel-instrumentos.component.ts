@@ -10,6 +10,7 @@ export class PanelInstrumentosComponent implements OnInit {
 
   constructor(private arduino:DatosArduinoService) { }
   datos:any={};
+  fechaYHora:any="";
  
   ngOnInit(): void {
     setInterval(()=>{

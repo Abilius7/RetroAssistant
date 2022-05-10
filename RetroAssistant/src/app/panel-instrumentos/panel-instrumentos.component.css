@@ -1,0 +1,49 @@
+.row{
+    height: 26.5%;
+    width: 99%;
+}
+.fondo{
+    padding-top: 5%;
+    height: 94%;
+}
+.temaOscuro {
+    background-image: url(../../assets/media/fondosPantalla/fibraCarbono.jpg);
+    color: white;
+}
+
+.temaCalro {
+    background-image: url(../../assets/media/fondosPantalla/blanco.jpg);
+    color: black;
+}
+.temaOscuro div div{
+    margin-left: 1%;
+    margin-top: 1%;
+    font-size: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:center;
+    border: 1px yellow solid;
+    border-radius: 15px;
+}
+.temaClaro div div{
+    margin-left: 1%;
+    margin-top: 1%;
+    font-size: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:center;
+    border: 1px black solid;
+    border-radius: 15px;
+}
+.cambioTema{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.cambioTema h1{
+    width: 100%;
+    text-align: center;
+}

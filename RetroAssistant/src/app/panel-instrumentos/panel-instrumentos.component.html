@@ -1,6 +1,55 @@
-<div>
-    <span>Velocidad {{datos.velocidad}}Km/h</span><br/>
-    <span>Porcentaje de combustible {{datos.porcentajeCombustible}}%</span><br/>
-    <span>Litros por 100 KM {{datos.litros100km}}l/s</span><br/>
+
+<div class="container-fluid fondo temaClaro">
+    <div class="row">
+        <div id="counsumoActual" class="col">
+            Consumo actual
+            <span>{{datos.litros100km}}</span>
+        </div>
+        <div id="consumoMedio" class="col">
+            Consumo medio
+            <span>{{datos.consumoMedio}}</span>
+        </div>
+        <div id="logoRetroAssistant" class="col">
+            <img src="../../assets/logoRetroAssistant.png">
+        </div>
+    </div>
+    <div class="row">
+        <div id="temperatura" class="col">
+            Temperatura del acceite
+            <span>{{datos.temperatura}}</span>
+        </div>
+        <div id="velocidad" class="col">
+            Velocidad
+            <span>{{datos.velocidad}}Km/h</span>
+        </div>
+        <div id="Distanciatrasera" class="col">
+            Distancia trasera
+            <span>{{datos.distanciaTrasera}}</span>
+        </div>
+    </div>
+    <div class="row">
+        <div id="FechaHora" class="col">
+            Consumo medio
+            <span>{{fechaYHora}}</span>
+        </div>
+        <div id="DistanciaRecorrida" class="col">
+            Distancia recorrida
+            <span>{{datos.consumoMedio}}</span>
+        </div>
+        <div id="porcentajeCombustible" class="col">
+            Porcentasje de combustible
+            <span>{{datos.porcentajeCombustible}}%</span>
+        </div>
+    </div>
     <linear-gauge width="150" height="400"></linear-gauge>
+</div>
+
+<div class="cambioTema">
+    <h1>Elige tema</h1>
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="bold">Claro</mat-button-toggle>
+        <mat-button-toggle value="italic">Oscuro</mat-button-toggle>
+        <mat-button-toggle value="underline">Analogico</mat-button-toggle>
+      </mat-button-toggle-group>
+      
 </div>

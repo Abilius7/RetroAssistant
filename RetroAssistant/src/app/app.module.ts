@@ -36,6 +36,7 @@ import { CambiarDatosProductosComponent } from './panel-administrador/cambiar-da
 import { AnnadirProductoComponent } from './panel-administrador/annadir-producto/annadir-producto.component';
 import { GestionUsuariosComponent } from './panel-administrador/gestion-usuarios/gestion-usuarios.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonToggleModule} from '@angular/material/button-toggle'; 
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     GaugesModule,
     LayoutModule,
     MatSidenavModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

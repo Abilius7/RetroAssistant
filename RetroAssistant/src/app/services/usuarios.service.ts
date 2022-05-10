@@ -14,8 +14,8 @@ export class UsuariosService {
     return this.http.post(this.ruta+"/iniciarSesion.php",{"usuario":usuario,"contrasenna":contrasenna});
   }
 
-  crearUsuario (usuario:string,contrasenna:string,tipo:string){
-    return this.http.post(this.ruta+"/crearUsuario.php",{"usuario":usuario,"contrasenna":contrasenna,'tipo':tipo});
+  crearUsuario (usuario:string,contrasenna:string,tipo:string,email:string){
+    return this.http.post(this.ruta+"/crearUsuario.php",{"usuario":usuario,"contrasenna":contrasenna,'tipo':tipo,'email':email});
   }
   cambiarContrasenna (usuario:string,contrasenna:string,contrasennaNueva:string){
     return this.http.post(this.ruta+"/cambiarContrasenna.php",{"nombreUsuario":usuario,"contrasenna":contrasenna,"contrasennaNueva":contrasennaNueva});
