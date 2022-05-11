@@ -13,6 +13,12 @@ export class PanelInstrumentosComponent implements OnInit {
   fechaYHora:any="";
  
   ngOnInit(): void {
+
+    window.scroll({
+      top: 50,
+      behavior: 'smooth'
+    });
+
     setInterval(()=>{
       this.arduino.obtenerDatos()
     .subscribe((result)=>{
@@ -40,6 +46,16 @@ export class PanelInstrumentosComponent implements OnInit {
     })
     },1000)
 
+  }
+  cambiarTemaClaro(){
+    let table:any = document.querySelector("table");
+    table.className= table.className+" temaClaro";
+    table.className = table.className.replaceAll ("temaOscuro","");
+  }
+  cambiarTemaOscuro(){
+    let table:any = document.querySelector("table");
+    table.className= table.className+" temaOscuro";
+    table.className = table.className.replaceAll ("temaCalro","");
   }
 
 }

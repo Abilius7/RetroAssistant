@@ -1,54 +1,53 @@
 
-<div class="container-fluid fondo temaClaro">
-    <div class="row">
-        <div id="counsumoActual" class="col">
+<table class="fondo temaOscuro">
+    <tr>
+        <td id="counsumoActual">
             Consumo actual
             <span>{{datos.litros100km}}</span>
-        </div>
-        <div id="consumoMedio" class="col">
+        </td>
+        <td id="consumoMedio">
             Consumo medio
             <span>{{datos.consumoMedio}}</span>
-        </div>
-        <div id="logoRetroAssistant" class="col">
+        </td>
+        <td id="logoRetroAssistant">
             <img src="../../assets/logoRetroAssistant.png">
-        </div>
-    </div>
-    <div class="row">
-        <div id="temperatura" class="col">
+        </td>
+    </tr>
+    <tr>
+        <td id="temperatura">
             Temperatura del acceite
             <span>{{datos.temperatura}}</span>
-        </div>
-        <div id="velocidad" class="col">
+        </td>
+        <td id="velocidad">
             Velocidad
             <span>{{datos.velocidad}}Km/h</span>
-        </div>
-        <div id="Distanciatrasera" class="col">
+        </td>
+        <td id="Distanciatrasera">
             Distancia trasera
             <span>{{datos.distanciaTrasera}}</span>
-        </div>
-    </div>
-    <div class="row">
-        <div id="FechaHora" class="col">
+        </td>
+    </tr>
+    <tr>
+        <td id="FechaHora">
             Consumo medio
             <span>{{fechaYHora}}</span>
-        </div>
-        <div id="DistanciaRecorrida" class="col">
+        </td>
+        <td id="DistanciaRecorrida">
             Distancia recorrida
             <span>{{datos.consumoMedio}}</span>
-        </div>
-        <div id="porcentajeCombustible" class="col">
+        </td>
+        <td id="porcentajeCombustible">
             Porcentasje de combustible
             <span>{{datos.porcentajeCombustible}}%</span>
-        </div>
-    </div>
-    <linear-gauge width="150" height="400"></linear-gauge>
-</div>
+        </td>
+    </tr>
+</table>
 
 <div class="cambioTema">
     <h1>Elige tema</h1>
     <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-        <mat-button-toggle value="bold">Claro</mat-button-toggle>
-        <mat-button-toggle value="italic">Oscuro</mat-button-toggle>
+        <mat-button-toggle value="bold" (click)="cambiarTemaClaro()">Claro</mat-button-toggle>
+        <mat-button-toggle value="italic" (click)="cambiarTemaOscuro()">Oscuro</mat-button-toggle>
         <mat-button-toggle value="underline">Analogico</mat-button-toggle>
       </mat-button-toggle-group>
       
