@@ -3,16 +3,50 @@
     width: 99%;
 }
 .fondo{
-    padding-top: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     width: 100%;
     height: 94%;
+    border-collapse: separate;
+  border-spacing: 10px 5px;
 }
 
 .fondo tr td {
     width: 33%;
-
+    font-size:40px ;
+    margin-left: 1%;
+    border-radius: 15px;
+    text-align: center;
 }
 
+#counsumoActual{
+    border: 2px blue solid;
+}
+
+#consumoMedio{
+    border: 2px blueviolet solid;
+}
+#logoRetroAssistant{
+    border: 2px green solid;
+}
+#temperatura{
+    border: 2px yellow solid;
+}
+#velocidad{
+    border: 2px red solid;
+}
+#Distanciatrasera{
+    border: 2px rgb(8, 112, 107) solid;
+}
+#FechaHora{
+    border: 2px rgb(255, 255, 255) solid;
+}
+#DistanciaRecorrida{
+    border: 2px rgb(8, 219, 8) solid;
+}
+#porcentajeCombustible{
+    border: 2px rgb(141, 141, 29) solid;
+}
 .temaOscuro {
     background-image: url(../../assets/media/fondosPantalla/fibraCarbono.jpg);
     color: white;
@@ -22,30 +56,7 @@
     background-image: url(../../assets/media/fondosPantalla/blanco.jpg);
     color: black;
 }
-.temaOscuro div div{
-    width: 33%;
-    margin-left: 10%;
-    margin-top: 1%;
-    font-size: 150%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items:center;
-    border: 1px yellow solid;
-    border-radius: 15px;
-}
-.temaClaro div div{
-    width: 33%;
-    margin-left: 1%;
-    margin-top: 1%;
-    font-size: 150%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items:center;
-    border: 1px black solid;
-    border-radius: 15px;
-}
+
 .cambioTema{
     display: flex;
     justify-content: center;
