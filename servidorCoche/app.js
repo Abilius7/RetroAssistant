@@ -73,12 +73,26 @@ board.on("ready", function () {
     }
   });
 
+
+  // let termometro = new five.Thermometer({
+  //   controller: "DS18B20",
+  //   pin: "6",
+  //   freq:3000
+  // });
+  // termometro.on("data", function(data,err) {
+  //   console.log("celsius: %d", data.C);
+  //   console.log(err);
+  // });
+  
   app.get("/datos", (req, res) => {
     setTimeout(() => {
+   
+    
       let velocidad = obtenerVelocidad(contadorVueltas);
       let litrosSegundo = obtenerLitrosSegundo(revolucionesSegundo);
       contadorVueltas = 0;
       revolucionesSegundo = 0;
+      
       res.json({
         'velocidad': velocidad,
         'porcentajeCombustible': combustible,
@@ -92,8 +106,6 @@ function obtenerLitrosSegundo(revolucionesSegundo) {
   if (revolucionesSegundo != 0) {
     let litrosHora =revolucionesSegundo * 7.2727272727272727272727273 +3.63636363636363636363636363636363;
       let litrosSegundo = litrosHora / 3600;
-      console.log(litrosSegundo+"Litros Segundo");
-      console.log(revolucionesSegundo+"Revoluciones");
       return litrosSegundo;
 
   }else{
