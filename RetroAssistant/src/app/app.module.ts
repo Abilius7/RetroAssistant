@@ -36,7 +36,9 @@ import { CambiarDatosProductosComponent } from './panel-administrador/cambiar-da
 import { AnnadirProductoComponent } from './panel-administrador/annadir-producto/annadir-producto.component';
 import { GestionUsuariosComponent } from './panel-administrador/gestion-usuarios/gestion-usuarios.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatButtonToggleModule} from '@angular/material/button-toggle'; 
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { GraficasComponent } from './graficas/graficas.component';
+import { GraficaGenericaComponent } from './graficas/grafica-generica/grafica-generica.component'; 
 
 @NgModule({
   declarations: [
@@ -57,6 +59,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     CambiarDatosProductosComponent,
     AnnadirProductoComponent,
     GestionUsuariosComponent,
+    GraficasComponent,
+    GraficaGenericaComponent,
 
     
   ],

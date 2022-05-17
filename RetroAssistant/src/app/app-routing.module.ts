@@ -12,6 +12,7 @@ import { PanelAdministradorComponent } from './panel-administrador/panel-adminis
 import { CambiarDatosProductosComponent } from './panel-administrador/cambiar-datos-productos/cambiar-datos-productos.component';
 import { AnnadirProductoComponent } from './panel-administrador/annadir-producto/annadir-producto.component';
 import { GestionUsuariosComponent } from './panel-administrador/gestion-usuarios/gestion-usuarios.component';
+import { GraficasComponent } from './graficas/graficas.component';
 const routes: Routes = [
   {
     path:'',
@@ -67,6 +68,28 @@ const routes: Routes = [
       },
     ]
   },
+  {
+    path:"graficas",
+    component:GraficasComponent,
+    children:[
+      {
+        path:"velocidadConsumo",
+        component:CambiarDatosProductosComponent
+      },
+      {
+        path:"consumoHora",
+        component:AnnadirProductoComponent
+      },
+      {
+        path:"consumoDuracion",
+        component:GestionUsuariosComponent
+      },
+      {
+        path:"medias",
+        component:GestionUsuariosComponent
+      },
+    ]
+  }
 ];
 
 @NgModule({

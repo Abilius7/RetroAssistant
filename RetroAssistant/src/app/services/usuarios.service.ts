@@ -31,4 +31,7 @@ export class UsuariosService {
   modificarDatosUsuario (id:number,nombre:string,tipoUsuario:string,email:string){
     return this.http.post(this.ruta+"/cambiarDatosUsuario.php",{id:id,nombre:nombre,email:email,tipoUsuario:tipoUsuario});
   }
+  obtenerProductosUsuario (id:number){
+    return this.http.post(this.ruta+"/obtenerProductosCompradosPorUsuario.php",{idUsuario:id});
+  }
 }

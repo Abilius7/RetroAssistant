@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
-import { ComprasService } from 'src/app/services/compras.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 @Component({
   selector: 'app-opciones-usuario',
   templateUrl: './opciones-usuario.component.html',
@@ -9,7 +9,7 @@ import { ComprasService } from 'src/app/services/compras.service';
 })
 export class OpcionesUsuarioComponent implements OnInit {
 
-  constructor(private router: Router,private _bottomSheetRef: MatBottomSheetRef<OpcionesUsuarioComponent>,private compras:ComprasService) { }
+  constructor(private router: Router,private _bottomSheetRef: MatBottomSheetRef<OpcionesUsuarioComponent>,private usuarioService:UsuariosService) { }
 
   permisoParaPanelInstrumentos :boolean=false ;
   nombreUsuario:string='';
@@ -20,11 +20,11 @@ export class OpcionesUsuarioComponent implements OnInit {
     sesion=JSON.parse(sesion);
     this.nombreUsuario=sesion.usuario;
     this.tipoUsuario=sesion.tipoUsuario;
-    this.compras.obtenerProductos(sesion.id)
+    this.usuarioService.obtenerProductosUsuario(sesion.id)
     .subscribe((result)=>{
       let intermediario:any = result;
-      for (let i =0 ;i<intermediario.productos.length && !this.permisoParaPanelInstrumentos;i++){
-        let producto = intermediario.productos[i].nombre;
+      for (let i =0 ;i<intermediario.length && !this.permisoParaPanelInstrumentos;i++){
+        let producto = intermediario[i];
         if (producto=="Avanzado" || producto=="Basico" || producto=="Avanzado con instalacion" || producto=="Basico con instalacion"){
           this.permisoParaPanelInstrumentos=true;
         }

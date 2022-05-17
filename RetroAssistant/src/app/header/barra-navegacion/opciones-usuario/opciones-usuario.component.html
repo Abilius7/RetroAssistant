@@ -33,6 +33,15 @@
         <span mat-line>Panel de instrumentos</span>
     </a>
 
+    <a  mat-list-item routerLink="graficas" (click)="cerrar()" *ngIf="permisoParaPanelInstrumentos">
+        <span class="material-icons">
+            directions_car
+            </span>
+
+        <span mat-line>Graficos </span>
+    </a>
+
+
   <a mat-list-item routerLink="PanelControlAdmin" (click)="cerrar()" *ngIf="tipoUsuario=='Administrador'">
         <span class="material-icons">
             note
