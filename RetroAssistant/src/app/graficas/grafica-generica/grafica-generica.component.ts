@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
-
+import { RodadasService } from 'src/app/services/rodadas.service';
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 @Component({
@@ -10,24 +11,43 @@ import { Chart } from 'chart.js';
 })
 export class GraficaGenericaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private rodadasService:RodadasService,private rutaActiva: ActivatedRoute) { }
 
+  tipo:string="";
   ngOnInit(): void {
+
+    this.rutaActiva.params.subscribe(
+      (params: Params) => {
+        this.tipo = params['tipo'];
+
+        this.rodadasService.obtenerDatosGrafica(18,this.tipo)
+        .subscribe((result)=>{
+          console.log(result);
+          let intermediario:any = result;
+
+          let velocidad = intermediario.intervalos;
+          let consumos = intermediario.consumos;
+
+          new Chart("myChart", {
+            type: 'line',
+            data: {
+                datasets: [{
+                    label: 'Consumo',
+                    data: consumos,
+                    backgroundColor: "rgb(115 185 243 / 65%)",
+                    borderColor: "#007ee7",
+                    fill: false,
+                },
+              ],
+                labels: velocidad
+            },
+        });
+
+        });
+      }
+    );
     
-    new Chart("myChart", {
-      type: 'line',
-      data: {
-          datasets: [{
-              label: 'Current Vallue',
-              data: [0, 20, 100],
-              backgroundColor: "rgb(115 185 243 / 65%)",
-              borderColor: "#007ee7",
-              fill: true,
-          },
-         ],
-          labels: ['January 2019', 'February 2019', 'March 2019']
-      },
-  });
+    
 
   }
 

@@ -38,7 +38,8 @@ import { GestionUsuariosComponent } from './panel-administrador/gestion-usuarios
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { GraficasComponent } from './graficas/graficas.component';
-import { GraficaGenericaComponent } from './graficas/grafica-generica/grafica-generica.component'; 
+import { GraficaGenericaComponent } from './graficas/grafica-generica/grafica-generica.component';
+import { MediasComponent } from './graficas/medias/medias.component'; 
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { GraficaGenericaComponent } from './graficas/grafica-generica/grafica-ge
     GestionUsuariosComponent,
     GraficasComponent,
     GraficaGenericaComponent,
+    MediasComponent,
 
     
   ],

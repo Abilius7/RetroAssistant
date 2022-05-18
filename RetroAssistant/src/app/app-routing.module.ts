@@ -13,6 +13,8 @@ import { CambiarDatosProductosComponent } from './panel-administrador/cambiar-da
 import { AnnadirProductoComponent } from './panel-administrador/annadir-producto/annadir-producto.component';
 import { GestionUsuariosComponent } from './panel-administrador/gestion-usuarios/gestion-usuarios.component';
 import { GraficasComponent } from './graficas/graficas.component';
+import { GraficaGenericaComponent } from './graficas/grafica-generica/grafica-generica.component';
+import { MediasComponent } from './graficas/medias/medias.component';
 const routes: Routes = [
   {
     path:'',
@@ -73,20 +75,12 @@ const routes: Routes = [
     component:GraficasComponent,
     children:[
       {
-        path:"velocidadConsumo",
-        component:CambiarDatosProductosComponent
-      },
-      {
-        path:"consumoHora",
-        component:AnnadirProductoComponent
-      },
-      {
-        path:"consumoDuracion",
-        component:GestionUsuariosComponent
+        path:"grafica/:tipo",
+        component:GraficaGenericaComponent
       },
       {
         path:"medias",
-        component:GestionUsuariosComponent
+        component:MediasComponent
       },
     ]
   }
