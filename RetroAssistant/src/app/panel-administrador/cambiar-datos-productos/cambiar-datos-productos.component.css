@@ -41,6 +41,19 @@ button{
     background-color: #FE7E6D;
     height: 35px;
 }
+.objetosDiv{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 50%;
+    margin-bottom: 2%;
+}
+.botonEliminarObjeto{
+    margin-left: 10%;
+}
+.buttons{
+    margin-top: 5%;
+}
 
 @media only screen and (max-width: 752px) {
     

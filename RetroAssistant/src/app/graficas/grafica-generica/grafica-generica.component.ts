@@ -20,7 +20,7 @@ export class GraficaGenericaComponent implements OnInit {
       (params: Params) => {
         this.tipo = params['tipo'];
 
-        this.rodadasService.obtenerDatosGrafica(18,this.tipo)
+        this.rodadasService.obtenerDatosGrafica(this.obtenerIdUsuario(),this.tipo)
         .subscribe((result)=>{
           console.log(result);
           let intermediario:any = result;
@@ -41,6 +41,7 @@ export class GraficaGenericaComponent implements OnInit {
               ],
                 labels: velocidad
             },
+
         });
 
         });
@@ -49,6 +50,11 @@ export class GraficaGenericaComponent implements OnInit {
     
     
 
+  }
+  obtenerIdUsuario() {
+    let sesion: any = window.localStorage.getItem("sesion");
+    sesion = JSON.parse(sesion);
+    return sesion.id;
   }
 
 }

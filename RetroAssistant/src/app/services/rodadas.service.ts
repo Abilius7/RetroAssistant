@@ -14,4 +14,8 @@ export class RodadasService {
     return this.http.post("/retroAssistant/Rodadas/obtenerDatosVelocidadConsumo.php",{'idUsuario':idUsuario,'opcion':opcion});
   }
 
+  obtenerMedias(idUsuario:number){
+    return this.http.post("/retroAssistant/Rodadas/obtenerMedias.php",{'idUsuario':idUsuario});
+  }
+
 }

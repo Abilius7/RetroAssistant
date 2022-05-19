@@ -20,14 +20,14 @@
         </tr>
         <div class="contenedorInfo">
             <label>Paquete:</label>
-            <div *ngFor="let producto of producto.paquete;" >
+            <div *ngFor="let producto of producto.paquete;" class="objetosDiv">
                 <label class="producto">{{producto.objeto}}</label>
-                <button mat-stroked-button  (click)="eliminarObjeto(producto.objeto,producto.producto)" class="botonesEliminar" hidden>Eliminar</button>
+                <span  (click)="eliminarObjeto(producto.objeto,producto.producto)" class="botonesEliminar" hidden>Eliminar</span>
             </div>
             
             <div hidden class="botonesEliminar">
                 <label>Nombre objeto</label><input id="nuevoObjeto{{producto.idProducto}}" [(ngModel)]="nombreProductoNuevo">
-                <button mat-stroked-button   (click)="annadirObjeto (producto.idProducto)" hidden class="botonesEliminar">Annadir Objetos</button>
+                <button mat-stroked-button   (click)="annadirObjeto (producto.idProducto)" hidden class="botonesEliminar botonEliminarObjeto">Annadir Objetos</button>
             </div>
         </div>
         <tr class="buttons">
