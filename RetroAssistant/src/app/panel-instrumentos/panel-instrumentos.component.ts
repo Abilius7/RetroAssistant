@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { DatosArduinoService } from '../services/datos-arduino.service';
 import { RodadasService } from '../services/rodadas.service';
+import { UsuariosService } from '../services/usuarios.service';
 
 @Component({
   selector: 'app-panel-instrumentos',
@@ -9,46 +10,19 @@ import { RodadasService } from '../services/rodadas.service';
 })
 export class PanelInstrumentosComponent implements OnInit {
 
-  @HostListener('window:beforeunload', ['$event'])
-  beforeUnloadHander() {
-    let sesion: any = window.localStorage.getItem("sesion");
-    sesion = JSON.parse(sesion);
 
-    let date: any = new Date();
-    let fechaHora = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-
-    let duracion = this.fechaHoraInicio - date;
-
-    this.rodadasService.annadirRodada(sesion.id, fechaHora, this.datos.mediaConsumo, 0, this.datos.distanciaRecorrida, duracion)
-      .subscribe((result) => {
-        console.log(result);
-      });
-  }
-
-  constructor(private arduino: DatosArduinoService, private rodadasService: RodadasService) { }
+  constructor(private arduino: DatosArduinoService, private rodadasService: RodadasService, private usuarioService: UsuariosService) { }
   fechaHoraInicio: any = '';
   datos: any = {};
   fechaYHora: any = "";
   arrayConsumos: number[] = [];
+  arrayVelocidad: number[] = [];
   distanciaRecorrida: number = 0;
+  almacenamientoEnlaNueve = false;
 
-  ngOnDestroy() {
-
-    let sesion: any = window.localStorage.getItem("sesion");
-    sesion = JSON.parse(sesion);
-
-    let date: any = new Date();
-    let fechaHora = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
-
-    let duracion = this.fechaHoraInicio - date;
-
-    this.rodadasService.annadirRodada(sesion.id, fechaHora, this.datos.mediaConsumo, 0, this.datos.distanciaRecorrida, duracion)
-      .subscribe((result) => {
-        console.log(result);
-      });
-  }
 
   ngOnInit(): void {
+    this.tieneServicioDeNube();
 
     this.fechaHoraInicio = new Date();
 
@@ -80,27 +54,33 @@ export class PanelInstrumentosComponent implements OnInit {
 
           }
           this.arrayConsumos.push(litros100km);
+          this.arrayVelocidad.push(intermediario.velocidad);
           this.distanciaRecorrida += intermediario.velocidad / 3600;
 
           let consumoMedio = 0;
           for (let i = 0; i < this.arrayConsumos.length; i++) {
             consumoMedio += this.arrayConsumos[i];
           }
+          consumoMedio = consumoMedio / this.arrayConsumos.length;
 
           let date = new Date();
           this.fechaYHora = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 
           this.datos = {
-            velocidad: intermediario.velocidad,
-            porcentajeCombustible: intermediario.porcentajeCombustible,
-            litros100km: litros100km,
-            mediaConsumo: consumoMedio,
-            distanciaRecorrida: this.distanciaRecorrida,
+            velocidad: this.trunc(intermediario.velocidad),
+            porcentajeCombustible: this.trunc(intermediario.porcentajeCombustible, 0),
+            litros100km: this.trunc(litros100km, 2),
+            mediaConsumo: this.trunc(consumoMedio, 2),
+            distanciaRecorrida: this.trunc(this.distanciaRecorrida),
             fechaHora: this.fechaYHora,
           }
 
         })
     }, 1000)
+
+    setInterval(() => {
+      this.subirRodada();
+    }, 300000)
 
   }
   cambiarTemaClaro() {
@@ -114,4 +94,56 @@ export class PanelInstrumentosComponent implements OnInit {
     table.className = table.className.replaceAll("temaCalro", "");
   }
 
+  trunc(x: any = 0, posiciones = 0) {
+    var s = x.toString()
+    var l = s.length
+    var decimalLength = s.indexOf('.') + 1
+    var numStr = s.substr(0, decimalLength + posiciones)
+    return Number(numStr)
+  }
+
+  subirRodada() {
+    if (this.almacenamientoEnlaNueve) {
+      let sesion: any = window.localStorage.getItem("sesion");
+      sesion = JSON.parse(sesion);
+
+      let date: any = new Date();
+      let fechaHora = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+      let duracion = date - this.fechaHoraInicio;
+
+      let sumatorioVelocidad = 0;
+
+      for (let i = 0; i < this.arrayVelocidad.length; i++) {
+        sumatorioVelocidad += this.arrayVelocidad[i];
+      }
+
+      let velocidadMedia = sumatorioVelocidad / this.arrayVelocidad.length;
+
+      this.rodadasService.annadirRodada(sesion.id, fechaHora, this.datos.mediaConsumo, velocidadMedia, this.datos.distanciaRecorrida, duracion)
+        .subscribe((result) => {
+          console.log(result);
+        });
+    }else{
+      alert("No tienes permiso para subir datos a la nube compra el servicio en nuestra web");
+    }
+  }
+
+  tieneServicioDeNube() {
+    let sesion: any = window.localStorage.getItem("sesion");
+    sesion = JSON.parse(sesion);
+    this.usuarioService.obtenerProductosUsuario(sesion.id)
+      .subscribe((result) => {
+        let intermediario: any = result;
+        for (let i = 0; i < intermediario.length; i++) {
+          if (intermediario[i] == "Almacenamiento en la nube") {
+            this.almacenamientoEnlaNueve = true;
+          }
+        }
+      });
+  }
+
 }
+
+
+

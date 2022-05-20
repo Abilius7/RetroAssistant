@@ -92,7 +92,7 @@ board.on("ready", function () {
       let litrosSegundo = obtenerLitrosSegundo(revolucionesSegundo);
       contadorVueltas = 0;
       revolucionesSegundo = 0;
-      
+      console.log(litrosSegundo);
       res.json({
         'velocidad': velocidad,
         'porcentajeCombustible': combustible,
@@ -105,7 +105,7 @@ board.on("ready", function () {
 function obtenerLitrosSegundo(revolucionesSegundo) {
   if (revolucionesSegundo != 0) {
     let litrosHora =revolucionesSegundo * 7.2727272727272727272727273 +3.63636363636363636363636363636363;
-      let litrosSegundo = litrosHora / 3600;
+      let litrosSegundo = litrosHora / 360000;
       return litrosSegundo;
 
   }else{
