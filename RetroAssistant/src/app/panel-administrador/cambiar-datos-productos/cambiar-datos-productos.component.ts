@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ObtenerProductosService } from '../../services/obtener-productos.service';
 import { ProductosService } from '../../services/productos.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AlertaComponent } from 'src/app/alerta/alerta.component';
+
 
 @Component({
   selector: 'app-cambiar-datos-productos',
@@ -14,7 +16,9 @@ export class CambiarDatosProductosComponent implements OnInit {
 
   arrayProductos: any = '';
   nombreProductoNuevo: string = '';
-
+  idProducto:any = 0;
+  accion:string='';
+  idUsuario:any="";
   ngOnInit(): void {
     this.productos.devolverProductos().subscribe((response) => {
       let intermediario: any = response
@@ -24,11 +28,15 @@ export class CambiarDatosProductosComponent implements OnInit {
 
   eliminar(id: string) {
 
+    let alerta:any = document.querySelector("#cambiar");
+    alerta.style.display="block";
+    this.accion='eliminar';
+    this.idProducto= id;
+    let buttons:any = document.querySelectorAll(".contenedorDeProductos button");
+    for (let i = 0 ; i<buttons.length;i++){
+      buttons[i].disabled=true;
+    }
 
-    this.httpProducto.eliminarProducto(id)
-      .subscribe((response) => {
-        this.ngOnInit();
-      })
   }
   cambiar(id: number) {
 
@@ -42,10 +50,15 @@ export class CambiarDatosProductosComponent implements OnInit {
     if (tabla.querySelector('span').hidden == true) {
       visualizarInputs = false;
       if (nombre.value.length > 0 && descripcion.value.length > 0 && !isNaN(precio.value)&& 0!=(precio.value)) {
-        this.httpProducto.actualizarProducto(nombre.value, descripcion.value, precio.value, imagen.value, id)
-          .subscribe((result) => {
-            this.ngOnInit();
-          })
+
+        let alerta:any = document.querySelector("#cambiar");
+        alerta.style.display="block";
+        this.idProducto= id;
+        this.accion='cambiar';
+        let buttons:any = document.querySelectorAll(".contenedorDeProductos button");
+        for (let i = 0 ; i<buttons.length;i++){
+          buttons[i].disabled=true;
+        }
       } else {
         alert('Porfavor introduce valores validos');
       }
@@ -71,10 +84,6 @@ export class CambiarDatosProductosComponent implements OnInit {
 
   eliminarObjeto(objeto: string, idProducto: number) {
 
-
-
-
-
     this.httpProducto.eliminarObjeto(objeto, idProducto)
       .subscribe((result) => {
         if (result) {
@@ -96,5 +105,38 @@ export class CambiarDatosProductosComponent implements OnInit {
           alert('Ha ocurrido un problema');
         }
       });
+  }
+  confirmar($event:any){
+    if ($event.accion=="cambiar"){
+      let id= $event.idProducto;
+      let nombre: any = document.querySelector('#nombre' + id);
+      let descripcion: any = document.querySelector('#descripcion' + id);
+      let imagen: any = document.querySelector('#imagen' + id);
+      let precio: any = document.querySelector('#precio' + id);
+
+      if ($event.respuesta==true){
+        this.httpProducto.actualizarProducto(nombre.value, descripcion.value, precio.value, imagen.value, id)
+            .subscribe((result) => {
+              this.ngOnInit();
+              
+            })
+      }
+    }else if ($event.accion="eliminar"){
+      if ($event.respuesta==true){
+        this.httpProducto.eliminarProducto($event.idProducto)
+        .subscribe((response) => {
+          this.ngOnInit();
+        })
+      }
+    }
+
+    let alerta:any = document.querySelector("#cambiar");
+    alerta.style.display="none";
+
+    let buttons:any = document.querySelectorAll(".contenedorDeProductos button");
+        for (let i = 0 ; i<buttons.length;i++){
+          buttons[i].disabled=false;
+        }
+    
   }
 }

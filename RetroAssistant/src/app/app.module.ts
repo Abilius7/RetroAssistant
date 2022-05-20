@@ -39,7 +39,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { GraficasComponent } from './graficas/graficas.component';
 import { GraficaGenericaComponent } from './graficas/grafica-generica/grafica-generica.component';
-import { MediasComponent } from './graficas/medias/medias.component'; 
+import { MediasComponent } from './graficas/medias/medias.component';
+import { AlertaComponent } from './alerta/alerta.component'; 
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { MediasComponent } from './graficas/medias/medias.component';
     GraficasComponent,
     GraficaGenericaComponent,
     MediasComponent,
+    AlertaComponent,
 
     
   ],

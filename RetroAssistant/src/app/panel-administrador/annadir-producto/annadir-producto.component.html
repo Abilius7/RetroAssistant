@@ -39,5 +39,9 @@
         </tr>
         <tr><button mat-stroked-button (click)="annadirProducto()">Añadir producto</button></tr>
     </table>
+
+    <app-alerta id="cambiar" idProducto="" accion="" (pulsado)="confirmar($event)" style="display: none;"></app-alerta>
 </div>
+
+
 
