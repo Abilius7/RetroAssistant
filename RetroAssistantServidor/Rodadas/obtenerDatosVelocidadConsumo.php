@@ -4,72 +4,111 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
 error_reporting(E_ALL);
-    $conexion = new mysqli("localhost","Usuario","2DAW","RetroAssistant");
-    if ($conexion->connect_errno){
-        print $conexion->connect_errno;
-    }else{
-        $datos = [];
+$conexion = new mysqli("localhost", "Usuario", "2DAW", "RetroAssistant");
+if ($conexion->connect_errno) {
+    print $conexion->connect_errno;
+} else {
 
-        $objDatos = json_decode(file_get_contents("php://input"));
-        $idUsuario=$objDatos->idUsuario;
-        $opcion = $objDatos->opcion;
 
+    $datos = [];
+
+    $objDatos = json_decode(file_get_contents("php://input"));
+    $idUsuario = $objDatos->idUsuario;
+    $opcion = $objDatos->opcion;
+
+    if ($opcion != "FechaHora") {
         $queryMaximo = $conexion->query("SELECT MAX($opcion) FROM rodadas WHERE idUsuario=$idUsuario");
 
-        if ($maximoResult = $queryMaximo->fetch_array(MYSQLI_ASSOC)){
-            $maximo = $maximoResult['MAX('.$opcion.')'];
+        if ($maximoResult = $queryMaximo->fetch_array(MYSQLI_ASSOC)) {
+            $maximo = $maximoResult['MAX(' . $opcion . ')'];
         }
 
-        $queryVelocidadConsumo=$conexion->query("SELECT $opcion, Consumo FROM rodadas WHERE idUsuario=$idUsuario ORDER BY $opcion ");
+        $queryVelocidadConsumo = $conexion->query("SELECT $opcion, Consumo FROM rodadas WHERE idUsuario=$idUsuario ORDER BY $opcion ");
 
         //echo $maximo;
 
-        while ($rodada = $queryVelocidadConsumo->fetch_array(MYSQLI_ASSOC)){
-            
+        while ($rodada = $queryVelocidadConsumo->fetch_array(MYSQLI_ASSOC)) {
 
-            for ($i=0;$i<$maximo;$i=$i+10){
-                if ($rodada[$opcion]>$i && $rodada[$opcion]<=$i+9){
-                    if (empty($datos[$i])){
-                        $datos[$i]=[];
+
+            for ($i = 0; $i < $maximo; $i = $i + 10) {
+                if ($rodada[$opcion] > $i && $rodada[$opcion] <= $i + 9) {
+                    if (empty($datos[$i])) {
+                        $datos[$i] = [];
                     }
-                    $datos[$i][count($datos[$i])]=$rodada['Consumo'];
+                    $datos[$i][count($datos[$i])] = $rodada['Consumo'];
                 }
             }
-
         }
 
-        $intervalos = [] ;
+        $intervalos = [];
         $consumos = [];
-        $contador=0;
-        foreach ($datos as $clave => $intervalo){
+        $contador = 0;
+        foreach ($datos as $clave => $intervalo) {
             $sumatorio = 0;
-            for ($i = 0 ; $i<count($intervalo);$i++){
+            for ($i = 0; $i < count($intervalo); $i++) {
                 $sumatorio = $sumatorio + $intervalo[$i];
             }
-            $consumos[$contador] = $sumatorio/count($intervalo); 
-            if ($opcion == "Duracion"){
+            $consumos[$contador] = $sumatorio / count($intervalo);
+            if ($opcion == "Duracion") {
 
-                $horas =  truncateFloat($clave/3600, 0);
-                $minutos =  truncateFloat($clave%60/60, 0);
-                $horaFormateada = $horas . ":".$minutos;
+                $horas =  truncateFloat($clave / 3600, 0);
+                $minutos =  truncateFloat($clave % 60 / 60, 0);
+                $horaFormateada = $horas . ":" . $minutos;
 
-                $intervalos[$contador++]= $horaFormateada;
-            }else if ($opcion == "Velocidad"){
-                $intervalos[$contador++]= $clave." KM/H";
-            }else if ($opcion == "FechaHora"){
-                $intervalos[$contador++]= $clave;
+                $intervalos[$contador++] = $horaFormateada;
+            } else if ($opcion == "Velocidad") {
+                $intervalos[$contador++] = $clave . " KM/H";
+            } else if ($opcion == "FechaHora") {
+                $intervalos[$contador++] = $clave;
+            }
+        }
+
+        echo json_encode(['consumos' => $consumos, 'intervalos' => $intervalos]);
+    } else {
+
+        $maximo = 24;
+
+        $queryVelocidadConsumo = $conexion->query("SELECT DATE_FORMAT($opcion,'%H'), Consumo FROM rodadas WHERE idUsuario=$idUsuario ORDER BY DATE_FORMAT($opcion,'%H') ");
+
+        //echo $maximo;
+
+        while ($rodada = $queryVelocidadConsumo->fetch_array(MYSQLI_ASSOC)) {
+            
+            $hora = explode(".",$rodada["DATE_FORMAT($opcion,'%H')"])[0];
+
+
+            for ($i = 0; $i < $maximo; $i ++) {
+                if ($hora > $i && $hora <= $i +1) {
+                    if (empty($datos[$i])) {
+                        $datos[$i] = [];
+                    }
+                    $datos[$i][count($datos[$i])] = $rodada['Consumo'];
+                }
             }
             
         }
 
-        echo json_encode(['consumos'=>$consumos,'intervalos'=>$intervalos]);
-    }
+        $intervalos = [];
+        $consumos = [];
+        $contador = 0;
+        foreach ($datos as $clave => $intervalo) {
+            $sumatorio = 0;
+            for ($i = 0; $i < count($intervalo); $i++) {
+                $sumatorio = $sumatorio + $intervalo[$i];
+            }
+            $consumos[$contador] = $sumatorio / count($intervalo);
 
-    function truncateFloat($number, $digitos){
-        $raiz = 10;
-        $multiplicador = pow ($raiz,$digitos);
-        $resultado = ((int)($number * $multiplicador)) / $multiplicador;
-        return number_format($resultado, $digitos);
-    
+            $intervalos[$contador++] = $clave;
         }
-?>
+
+        echo json_encode(['consumos' => $consumos, 'intervalos' => $intervalos]);
+    }
+}
+
+function truncateFloat($number, $digitos)
+{
+    $raiz = 10;
+    $multiplicador = pow($raiz, $digitos);
+    $resultado = ((int)($number * $multiplicador)) / $multiplicador;
+    return number_format($resultado, $digitos);
+}

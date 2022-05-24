@@ -22,7 +22,10 @@
             <label>Paquete:</label>
             <div *ngFor="let producto of producto.paquete;" class="objetosDiv">
                 <label class="producto">{{producto.objeto}}</label>
-                <span  (click)="eliminarObjeto(producto.objeto,producto.producto)" class="botonesEliminar" hidden>Eliminar</span>
+                <span class="material-icons botonesEliminar" (click)="eliminarObjeto(producto.objeto,producto.producto)" hidden>
+                    delete
+                    </span>
+
             </div>
             
             <div hidden class="botonesEliminar">

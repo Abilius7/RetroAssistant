@@ -31,6 +31,10 @@ export class PanelInstrumentosComponent implements OnInit {
       behavior: 'smooth'
     });
 
+    const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+    const dias_semana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+
     setInterval(() => {
       this.arduino.obtenerDatos()
         .subscribe((result) => {
@@ -64,7 +68,9 @@ export class PanelInstrumentosComponent implements OnInit {
           consumoMedio = consumoMedio / this.arrayConsumos.length;
 
           let date = new Date();
-          this.fechaYHora = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+          let hora = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+
+          let fechaFormateada = dias_semana[date.getDay()] + ', ' + date.getDate() + ' de ' + meses[date.getMonth()] + ' de ' + date.getUTCFullYear();
 
           this.datos = {
             velocidad: this.trunc(intermediario.velocidad),
@@ -72,14 +78,15 @@ export class PanelInstrumentosComponent implements OnInit {
             litros100km: this.trunc(litros100km, 2),
             mediaConsumo: this.trunc(consumoMedio, 2),
             distanciaRecorrida: this.trunc(this.distanciaRecorrida),
-            fechaHora: this.fechaYHora,
+            hora: hora,
+            fecha:fechaFormateada,
           }
 
         })
     }, 1000)
 
     setInterval(() => {
-      this.subirRodada();
+      this.subirRodada('automatico');
     }, 300000)
 
   }
@@ -102,7 +109,7 @@ export class PanelInstrumentosComponent implements OnInit {
     return Number(numStr)
   }
 
-  subirRodada() {
+  subirRodada(manual:string) {
     if (this.almacenamientoEnlaNueve) {
       let sesion: any = window.localStorage.getItem("sesion");
       sesion = JSON.parse(sesion);
@@ -125,7 +132,9 @@ export class PanelInstrumentosComponent implements OnInit {
           console.log(result);
         });
     }else{
-      alert("No tienes permiso para subir datos a la nube compra el servicio en nuestra web");
+      if (manual=='manual'){
+        alert("No tienes permiso para subir datos a la nube compra el servicio en nuestra web");
+      }
     }
   }
 

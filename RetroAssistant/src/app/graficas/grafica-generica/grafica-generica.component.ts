@@ -28,6 +28,9 @@ export class GraficaGenericaComponent implements OnInit {
           let velocidad = intermediario.intervalos;
           let consumos = intermediario.consumos;
 
+          let gifCargando:any = document.querySelector('#cargando');
+          gifCargando.hidden = true;
+
           new Chart("myChart", {
             type: 'line',
             data: {

@@ -10,7 +10,7 @@
             <span>{{datos.mediaConsumo}}</span>
         </td>
         <td id="logoRetroAssistant">
-            <button (click)="subirRodada()" >Subir rodada</button>
+            <button (click)="subirRodada('manual')" >Subir rodada</button>
         </td>
     </tr>
     <tr>
@@ -28,16 +28,17 @@
         </td>
     </tr>
     <tr>
-        <td id="FechaHora">
-            Fecha y Hora
-            <span>{{datos.fechaHora}}</span>
+        <td id="FechaHora" >
+            <span> Fecha y Hora </span>
+            <span>{{datos.hora}}</span><br/>
+            <span id="fecha">{{datos.fecha}}</span>
         </td>
         <td id="DistanciaRecorrida">
             Distancia recorrida
             <span>{{datos.distanciaRecorrida}}</span>
         </td>
         <td id="porcentajeCombustible">
-            Porcentasje de combustible
+            Porcentaje de combustible
             <span>{{datos.porcentajeCombustible}}%</span>
         </td>
     </tr>

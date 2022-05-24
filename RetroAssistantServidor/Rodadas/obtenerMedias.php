@@ -43,10 +43,10 @@ error_reporting(E_ALL);
         $minutos = truncateFloat($b*60,0);
         $horaConFormato = $horas.":".$minutos;
 
-        echo json_encode(['Velocidad'=>$contadorVelocidad/$contadorgeneral,
-        'Consumo'=>$contadorConsumo/$contadorgeneral,
-        'Duracion'=>round($contadorDuracion/$contadorgeneral/3600,2),
-        'Distancia'=>$contadorDistancia/$contadorgeneral,
+        echo json_encode(['Velocidad'=>truncateFloat($contadorVelocidad/$contadorgeneral,2),
+        'Consumo'=>truncateFloat($contadorConsumo/$contadorgeneral,2),
+        'Duracion'=>truncateFloat($contadorDuracion/$contadorgeneral/3600,2),
+        'Distancia'=>truncateFloat($contadorDistancia/$contadorgeneral,2),
         'Hora'=>$horaConFormato]);
     }
 
