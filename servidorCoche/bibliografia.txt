@@ -10,4 +10,3 @@ https://www.youtube.com/watch?v=XSZXC7pTcuc		        -->Video donde se explica c
 https://naylampmechatronics.com/sensores-liquido/108-sensor-de-flujo-de-agua-12-yf-s201.html -->Docuemntacion tecnica del caudaliemtro YF-S201
 https://www.olimex.com/Products/Components/Sensors/SNS-FLOW201/resources/Water_flow_sensor_datasheet.pdf --> Oja de datos del caudalimetro
 http://www.flotcharts.org/flot/examples/				-->Para crear graficas con jquery
-https://www.highcharts.com/blog/download/				-->Mas graficas entre las que esta un velocimetro
