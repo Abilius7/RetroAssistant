@@ -102,7 +102,7 @@ export class CambiarDatosProductosComponent implements OnInit {
         if (result) {
           this.ngOnInit();
         } else {
-          alert('Ha ocurrido un problema');
+          alert('El objeto ya existe en la lista de objetos de este producjto');
         }
       });
   }

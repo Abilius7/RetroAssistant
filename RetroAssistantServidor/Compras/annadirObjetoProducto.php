@@ -15,8 +15,11 @@ if ($conexion->connect_errno) {
     $id = $objDatos->idProducto;
     $nombre = $objDatos->objeto;
 
-    $respuesta=$conexion->query("INSERT INTO paquete VALUES ('$id','$nombre')");
-    
+    try {
+    $respuesta=$conexion->query("INSERT INTO paquete VALUES ('$id','$nombre')") or die ;
+    }catch (Exception $e){
+        $respuesta=false;
+    }
 }
 print json_encode($respuesta);
 
