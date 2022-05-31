@@ -87,7 +87,17 @@ export class CambiarDatosProductosComponent implements OnInit {
     this.httpProducto.eliminarObjeto(objeto, idProducto)
       .subscribe((result) => {
         if (result) {
-          this.ngOnInit();
+          for (let  i =0  ;i<this.arrayProductos.length;i++){
+            if (this.arrayProductos[i].idProducto == idProducto){
+              let arrayObjetos = this.arrayProductos[i].paquete;
+              for (let j = 0 ;j<arrayObjetos.length;j++){
+                if (arrayObjetos[j].objeto == objeto){
+                  this.arrayProductos[i].paquete.splice(j,1);
+                }
+              }
+              
+            }
+          }
         } else {
           alert('Ha ocurrido un problema');
         }
@@ -100,7 +110,11 @@ export class CambiarDatosProductosComponent implements OnInit {
       .subscribe((result) => {
 
         if (result) {
-          this.ngOnInit();
+          for (let  i =0  ;i<this.arrayProductos.length;i++){
+            if (this.arrayProductos[i].idProducto == idProduto){
+              this.arrayProductos[i].paquete.push({'producto':idProduto,'objeto':objeto.value});
+            }
+          }
         } else {
           alert('El objeto ya existe en la lista de objetos de este producjto');
         }
